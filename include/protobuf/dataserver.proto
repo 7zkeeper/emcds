@@ -1,0 +1,116 @@
+/* author: zhangqi
+ * version: 0.1
+ * time: 2015/09/01
+ */
+
+package dataserver;
+//option java_package = "em_codec_dataserver";
+//option java_outer_classname = "em_ds_protos";
+
+enum ResponseCode
+{
+	OK = 0;
+	NOT_FIND = -1;
+	TIME_OUT = -2;
+	SERVER_INTERNAL = -3;
+	EXIST_TASK = -4;
+	
+	UNKNOWN = -1000;
+}
+
+enum flagtype
+{
+	VALID = 1;
+	INVALID = -1;
+}
+
+message UserStockCfg
+{
+	required string stockcode = 1;
+	required int64 bulletin = 2 [default=1];
+	optional float max_price = 3;
+	optional float min_price = 4;
+	optional float range = 5;
+	required int64 run = 6 [default=1]; 
+	required int64 incrementid = 7;
+}
+
+message SetUsrStkCfg
+{
+	required string taskid = 1;
+	required string usrid = 2;
+	repeated UserStockCfg stkcfg = 3;
+}
+
+message SingleUserStkCfg
+{
+	required string usrid = 1;
+	repeated UserStockCfg stkcfg = 2;
+}
+
+message IncrUsrStkCfg
+{
+	required string taskid = 1;
+	repeated SingleUserStkCfg = 2;	
+}
+
+message GetUsrStkCfg
+{
+	required string taskid = 1;
+	required string usrid = 2;
+	optional int64 incrementid =3;
+}
+
+message GetIncrStkCfg
+{
+	required int64 incrementid = 1;
+	required int64 count = 2;
+	required string taskid = 3;	
+}
+
+message UidDevices
+{
+	required string osversion = 1;
+	optional string comment = 2;
+	message appinfos{
+		required string apptype = 1;
+		required flagtype flag = 2 [default=VALID];
+		required string lastuid = 3;
+		required int64 lasttime = 4;
+		required string appversion = 5;
+	}
+
+	repeated appinfos apps = 3;
+}
+
+message SetUidDevices
+{
+	required string taskid = 1;
+	required string device = 2;
+	repeated UidDevices data = 3;
+}
+
+message GetUidDevices
+{
+	required string taskid = 1;
+	required string device = 2;
+	optional int64 incrementid = 3;
+}
+
+message UsrStockRes
+{
+	required string taskid = 1;
+	required ResponseCode response_code = 2;
+	optional string usrid = 3;
+	repeated UserStockCfg data = 4;
+}
+
+message UidDeviceRes
+{
+	required string taskid = 1;
+	required ResponseCode reponse_code = 2;
+	optional string device = 3;
+	repeated UidDevices data = 4;
+}
+
+

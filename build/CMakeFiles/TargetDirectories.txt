@@ -1,0 +1,2 @@
+/home/zhangqi/project/dataservice/build/datatask/CMakeFiles/datatask.dir
+/home/zhangqi/project/dataservice/build/proxyserver/CMakeFiles/proxyserver.dir

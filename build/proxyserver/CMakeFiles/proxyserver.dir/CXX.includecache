@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zhangqi/project/dataservice/include/utility/utility.cpp
+utility.h
+/home/zhangqi/project/dataservice/include/utility/utility.h
+string.h
+-
+iostream
+-
+boost/lexical_cast.hpp
+-
+
+/home/zhangqi/project/dataservice/include/utility/utility.h
+vector
+-
+string
+-
+
