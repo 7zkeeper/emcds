@@ -37,7 +37,7 @@ ENDIF()
 ADD_EXECUTABLE(${ProjectName} ${DIR_SRCS})
 
 TARGET_LINK_LIBRARIES (${ProjectName} muduo_net muduo_base log4cxx hiredis z rt pthread protobuf
-				boost_system boost_thread zookeeper_mt)
+				boost_system boost_thread zookeeper_mt boost_regex)
 
 
 

@@ -58,8 +58,6 @@ private:
 
 	void onClientMessage(const TcpConnectionPtr& conn,Buffer* buf,Timestamp);
 
-	
-
 	void onRedisConnection(hiredis::Hiredis* c,int status);
 
 	void onRedisDisconnection(hiredis::Hiredis* c ,int status);
@@ -67,7 +65,6 @@ private:
 	void onRedisGetResult(hiredis::Hiredis* c ,redisReply* reply);
 	
 	void onPushTask(hiredis::Hiredis* c,redisReply* reply);
-
 
 	void onRemoveConnection(const TcpConnectionPtr& conn);
 
@@ -88,6 +85,8 @@ private:
 	void sendRedisString(int id ,const string& msg);
 
 	void sendRedisPacket(int id ,Buffer* buf);
+	
+	void dealRedisIncrstkcfg(std::string result);
 	
 	TcpServer m_server;
 

@@ -7,11 +7,14 @@
 #include <log4cxx/logger.h>
 #include <log4cxx/propertyconfigurator.h>
 #include <muduo/base/Logging.h>
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/json_parser.hpp>
 
 #define PROXYSERVER 	"proxyserver"
 #define LOGFILE			"serverlog.properties"
 using namespace log4cxx;
 using namespace log4cxx::helpers;
+using namespace boost::property_tree;
 
 std::string redisReplyToString(const redisReply* reply);
 
@@ -270,6 +273,40 @@ void ProxyServer::onRemoveConnection(const TcpConnectionPtr& conn)
 	m_conns.erase(std::string(conn->name().c_str()));
 }
 
+void ProxyServer::dealRedisIncrstkcfg(std::string result)
+{
+	std::stringstream stream;
+    stream<<result;
+    std::string type,user,stk,bulletin,maxpirce,incr;
+    try
+    {       
+	    ptree pt,p1,p2,p3,p4;
+	    read_json<ptree>(stream,pt);
+	    type = pt.get<std::string>("tasktype");
+	    std::cout<<"tasktype: "<<type<<std::endl;
+	    p1 = pt.get_child("user");
+	    for(ptree::iterator it = p1.begin(); it != p1.end(); it++)
+	    {
+			p2 = it->second;
+			user = p2.get<std::string>("UID");
+			std::cout<<"UID: "<<user<<std::endl;
+			p3 = p2.get_child("stocks");
+			for(ptree::iterator iter = p3.begin(); iter != p3.end(); iter++)
+			{
+				p4 = iter->second;
+				stk = p4.get<std::string>("stockcode");
+				bulletin = p4.get<std::string>("bulletin1");
+				incr = p4.get<std::string>("incrementid");
+				std::cout<<stk<<","<<bulletin<<","<<incr<<std::endl;
+			 }
+		}
+	}
+	catch(ptree_error& e)
+	{
+		std::cout << "error for ptree parse.." << std::endl;
+	}
+
+}
 
 std::string toString(long long value)
 {

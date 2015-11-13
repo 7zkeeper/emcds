@@ -2,6 +2,8 @@
 #include <string.h>
 #include <iostream>
 #include <boost/lexical_cast.hpp>
+#include <boost/regex.hpp>
+
 
 int split(const std::string& src,std::vector<std::string>& ret,std::string sep)
 {
@@ -118,7 +120,7 @@ int getStkcfgIncrResult(std::string text,std::string& result,long long int flag)
 		stkcfgs.push_back(item);
 	}
 
-	int index = 0;
+	size_t index = 0;
 	for(; index < stkcfgs.size(); index++)
 	{
 		first = stkcfgs[index].find("incrementid: ")+sizeof("incrementid: ")-1;
@@ -142,3 +144,13 @@ int getStkcfgIncrResult(std::string text,std::string& result,long long int flag)
 	std::cout<<result<<std::endl;
 	return count;
 }
+
+void toJsonString(std::string& result)
+{
+	boost::regex r1("\\s*(\\w+)\\s*(:)\\s*(\\w+\\.?\\d*)",boost::regex::perl);
+	boost::regex r2("\\s*(\\w+)\\s*:",boost::regex::perl);
+	result = boost::regex_replace(result,r1,"\"$1\":\"$3\"");
+	result = boost::regex_replace(result,r2,"\"$1\":");
+}	
+
+

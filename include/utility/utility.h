@@ -16,3 +16,5 @@ void getKeyValue(keyvalue& kvs,std::string key,std::string& value);
 void display(keyvalue& kv);
 
 int getStkcfgIncrResult(std::string text,std::string& result,long long int flag);
+
+void toJsonString(std::string& result);
