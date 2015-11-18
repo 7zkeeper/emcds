@@ -6,8 +6,14 @@
 #ifndef MONGODB_FLAG_H_
 #define MONGODB_FLAG_H_
 
-#define QUERY_COUNT 		"qcount"
+//redis flag
+#define TASK_TYPE			"tasktype"
+#define TASK_ID				"task_id"
+#define USER				"user"
 
+
+//mongodb flag
+#define QUERY_COUNT 		"qcount"
 #define DB_NAME				"test"
 #define STKCFG_SETS			"usr_stk_cfg"
 #define MOBILE_SETS			"mobile"

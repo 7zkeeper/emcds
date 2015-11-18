@@ -33,7 +33,7 @@ ELSE()
 ENDIF()
 
 ADD_EXECUTABLE(${ProjectName} ${DIR_SRCS})
-TARGET_LINK_LIBRARIES (${ProjectName} log4cxx zookeeper_mt z boost_thread 
+TARGET_LINK_LIBRARIES (${ProjectName} log4cxx zookeeper_mt z boost_thread jansson protobuf
 						boost_filesystem boost_program_options boost_system 
 						boost_regex mongoclient)
 

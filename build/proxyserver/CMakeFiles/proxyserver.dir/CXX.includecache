@@ -56,6 +56,18 @@ boost/static_assert.hpp
 boost/type_traits/is_base_of.hpp
 -
 
+../proxyserver/../include/utility/json2pb.h
+string
+-
+
+../proxyserver/../include/utility/mongodb_flag.h
+
+../proxyserver/../include/utility/utility.h
+vector
+-
+string
+-
+
 /home/zhangqi/project/dataservice/proxyserver/Hiredis.h
 muduo/base/StringPiece.h
 -
@@ -76,12 +88,6 @@ boost/shared_ptr.hpp
 hiredis/hiredis.h
 -
 
-/home/zhangqi/project/dataservice/proxyserver/proxy.cpp
-proxyserver.h
-/home/zhangqi/project/dataservice/proxyserver/proxyserver.h
-stdio.h
--
-
 /home/zhangqi/project/dataservice/proxyserver/proxyserver.cpp
 proxyserver.h
 /home/zhangqi/project/dataservice/proxyserver/proxyserver.h
@@ -95,6 +101,16 @@ boost/property_tree/ptree.hpp
 -
 boost/property_tree/json_parser.hpp
 -
+utility/mongodb_flag.h
+/home/zhangqi/project/dataservice/proxyserver/utility/mongodb_flag.h
+boost/lexical_cast.hpp
+-
+utility/utility.h
+/home/zhangqi/project/dataservice/proxyserver/utility/utility.h
+utility/mongodb_flag.h
+/home/zhangqi/project/dataservice/proxyserver/utility/mongodb_flag.h
+utility/json2pb.h
+/home/zhangqi/project/dataservice/proxyserver/utility/json2pb.h
 
 /home/zhangqi/project/dataservice/proxyserver/proxyserver.h
 protobuf/codec.h

@@ -27,10 +27,20 @@ class EventLoop;
 namespace hiredis
 {
 
+
 class Hiredis : public boost::enable_shared_from_this<Hiredis>,
                 boost::noncopyable
 {
- public:
+	typedef struct _tag_rediswork_para
+	{
+		std::string ip;
+		unsigned int port;
+		unsigned int worker;
+		std::string task_title;
+		std::string ret_title;
+		std::string quitcmd;
+	}rediswork_para;
+public:
   typedef boost::function<void(Hiredis*, int)> ConnectCallback;
   typedef boost::function<void(Hiredis*, int)> DisconnectCallback;
   typedef boost::function<void(Hiredis*, redisReply*)> CommandCallback;
@@ -38,6 +48,13 @@ class Hiredis : public boost::enable_shared_from_this<Hiredis>,
   Hiredis(muduo::net::EventLoop* loop, const muduo::net::InetAddress& serverAddr);
   ~Hiredis();
 
+
+  void readIni(const char* szIni);
+  	
+  std::string getPushTitle() const;
+
+  std::string getRetTitle() const;
+  
   const muduo::net::InetAddress& serverAddress() const { return serverAddr_; }
   // redisAsyncContext* context() { return context_; }
   const char* errstr() const;
@@ -87,6 +104,7 @@ class Hiredis : public boost::enable_shared_from_this<Hiredis>,
   boost::shared_ptr<muduo::net::Channel> channel_;
   ConnectCallback connectCb_;
   DisconnectCallback disconnectCb_;
+  rediswork_para m_para;
 };
 
 }

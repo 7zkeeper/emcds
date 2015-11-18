@@ -7,6 +7,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/datatask.dir/__/include/mongodb/BSONCreator.cpp.o"
   "CMakeFiles/datatask.dir/__/include/mongodb/em_mongodb.cpp.o"
   "CMakeFiles/datatask.dir/__/include/zookeeper/ksm_zk.cpp.o"
+  "CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o"
   "CMakeFiles/datatask.dir/__/include/utility/utility.cpp.o"
   "Debug/datatask.pdb"
   "Debug/datatask"

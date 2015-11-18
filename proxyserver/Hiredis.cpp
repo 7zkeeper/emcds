@@ -6,6 +6,7 @@
 #include <muduo/net/SocketsOps.h>
 
 #include <hiredis/async.h>
+#include "inifile/inifile.h"
 
 using namespace muduo;
 using namespace muduo::net;
@@ -27,6 +28,31 @@ Hiredis::~Hiredis()
   LOG_DEBUG << this;
   assert(!channel_ || channel_->isNoneEvent());
   ::redisAsyncFree(context_);
+}
+
+void Hiredis::readIni(const char* szIni)
+{
+	inifile::IniFile ini;
+	ini.open(szIni);
+	std::string port ,worker;
+	ini.getValue("REDIS","redis_ip",m_para.ip);
+	ini.getValue("REDIS","redis_port",port);
+	ini.getValue("REDIS","get_title",m_para.task_title);
+	ini.getValue("REDIS","push_title",m_para.ret_title);
+	ini.getValue("REDIS","redis_worker",worker);
+	ini.getValue("REDIS","quit_cmd",m_para.quitcmd);
+	m_para.port = atoi(port.c_str());
+	m_para.worker = atoi(worker.c_str());
+}
+
+std::string Hiredis::getPushTitle() const
+{
+	return m_para.task_title;
+}
+
+std::string Hiredis::getRetTitle() const
+{
+	return m_para.ret_title;
 }
 
 const char* Hiredis::errstr() const
@@ -220,3 +246,4 @@ void Hiredis::pingCallback(Hiredis* me, redisReply* reply)
   assert(this == me);
   LOG_DEBUG << reply->str;
 }
+

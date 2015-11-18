@@ -259,6 +259,30 @@ __/include/redis/redisworker.cpp.s:
 	cd /home/zhangqi/project/dataservice/build && $(MAKE) -f proxyserver/CMakeFiles/proxyserver.dir/build.make proxyserver/CMakeFiles/proxyserver.dir/__/include/redis/redisworker.cpp.s
 .PHONY : __/include/redis/redisworker.cpp.s
 
+__/include/utility/json2pb.o: __/include/utility/json2pb.cc.o
+.PHONY : __/include/utility/json2pb.o
+
+# target to build an object file
+__/include/utility/json2pb.cc.o:
+	cd /home/zhangqi/project/dataservice/build && $(MAKE) -f proxyserver/CMakeFiles/proxyserver.dir/build.make proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o
+.PHONY : __/include/utility/json2pb.cc.o
+
+__/include/utility/json2pb.i: __/include/utility/json2pb.cc.i
+.PHONY : __/include/utility/json2pb.i
+
+# target to preprocess a source file
+__/include/utility/json2pb.cc.i:
+	cd /home/zhangqi/project/dataservice/build && $(MAKE) -f proxyserver/CMakeFiles/proxyserver.dir/build.make proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.i
+.PHONY : __/include/utility/json2pb.cc.i
+
+__/include/utility/json2pb.s: __/include/utility/json2pb.cc.s
+.PHONY : __/include/utility/json2pb.s
+
+# target to generate assembly for a file
+__/include/utility/json2pb.cc.s:
+	cd /home/zhangqi/project/dataservice/build && $(MAKE) -f proxyserver/CMakeFiles/proxyserver.dir/build.make proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.s
+.PHONY : __/include/utility/json2pb.cc.s
+
 __/include/utility/utility.o: __/include/utility/utility.cpp.o
 .PHONY : __/include/utility/utility.o
 
@@ -382,6 +406,9 @@ help:
 	@echo "... __/include/redis/redisworker.o"
 	@echo "... __/include/redis/redisworker.i"
 	@echo "... __/include/redis/redisworker.s"
+	@echo "... __/include/utility/json2pb.o"
+	@echo "... __/include/utility/json2pb.i"
+	@echo "... __/include/utility/json2pb.s"
 	@echo "... __/include/utility/utility.o"
 	@echo "... __/include/utility/utility.i"
 	@echo "... __/include/utility/utility.s"

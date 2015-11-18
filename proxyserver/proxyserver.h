@@ -88,6 +88,14 @@ private:
 	
 	void dealRedisIncrstkcfg(std::string result);
 	
+	void dealRedisSetUserLoad(std::string result);
+
+	void dealRedisGetUserLoad(std::string result);
+
+	void dealRedisSetUserStock(std::string result);
+
+	void dealRedisGetUserStock(std::string result);
+
 	TcpServer m_server;
 
 	ProtobufDispatcher m_dispatcher;

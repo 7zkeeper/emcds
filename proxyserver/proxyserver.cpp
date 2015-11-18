@@ -1,6 +1,8 @@
 /* author	: 	zhangqi
  * filename :   proxyserver.cpp
  * version	:   0.1
+ * desc		: 	it's seem to complex to record every task for conn, i think it's proper for each process and it's config 
+ * 				file define push and ret title for itself,finial the meta-infomation should be saved in zookeeper.	
  */
 
 #include "proxyserver.h"
@@ -9,6 +11,11 @@
 #include <muduo/base/Logging.h>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
+#include "utility/mongodb_flag.h"
+#include <boost/lexical_cast.hpp>
+#include "utility/utility.h"
+#include "utility/mongodb_flag.h"
+#include "utility/json2pb.h"
 
 #define PROXYSERVER 	"proxyserver"
 #define LOGFILE			"serverlog.properties"
@@ -38,6 +45,7 @@ ProxyServer::ProxyServer(EventLoop* loop,const InetAddress& listenAddr,	const In
 	
 void ProxyServer::start()
 {
+	m_redis.readIni("dataserver.ini");
 	m_redis.connect();
 	m_server.start();
 }
@@ -94,10 +102,14 @@ void ProxyServer::onGetIncrusrstk(const TcpConnectionPtr& conn,const IncrstkcfgP
 {
 	LOG_INFO << "onGetIncrusrstk protobuf received...";
 	std::string taskid = message->taskid();
-	int64_t id = message->incrementid();
-	std::string ret = "";
+	int id = boost::lexical_cast<int>(message->incrementid());
+	int count = boost::lexical_cast<int>(message->count());
+	char sztask[512];
+	sprintf(sztask,"%s:%d;%s:%s;%s:%d;%s:%d",TASK_TYPE,GET_INCR_USERSTK,TASK_ID,taskid.c_str(),MOBILE_INCR,id,QUERY_COUNT,count);
 	LOG_INFO << "taskid " <<taskid << " id " << id;
-	m_redis.command(boost::bind(&ProxyServer::onPushTask,this,_1,_2),"lpush test %s",taskid.c_str());
+//	m_redis.command(boost::bind(&ProxyServer::onPushTask,this,_1,_2),"lpush test %s",sztask);
+
+	m_redis.command(boost::bind(&ProxyServer::onPushTask,this,_1,_2),"lpush %s %s",m_redis.getPushTitle().c_str(),sztask);
 	m_taskconns[taskid] = std::string(conn->name().c_str());
 }
 
@@ -164,7 +176,35 @@ void ProxyServer::onRedisGetResult(hiredis::Hiredis* c,redisReply* reply)
 
 	std::string ret;
 	std::string task(reply->element[1]->str,reply->element[1]->len);
-	dataserver::SetUsrStkCfg stkcfg;
+
+	std::stringstream stream;
+    stream<<task;
+    std::string type;
+    ptree pt;
+	read_json<ptree>(stream,pt);
+	type = pt.get<std::string>(TASK_TYPE);
+	std::cout<<"tasktype: "<<type<<std::endl;
+	
+	int tasktype = boost::lexical_cast<int>(type);
+	switch(tasktype)
+	{
+	case SET_USER_LOAD:
+		dealRedisSetUserLoad(task);
+		break;
+	case GET_USER_LOAD:
+		dealRedisGetUserLoad(task);
+		break;
+	case SET_USER_STOCK:
+		dealRedisSetUserStock(task);
+		break;
+	case GET_USER_STOCK:
+		dealRedisGetUserStock(task);
+		break;
+	case GET_INCR_USERSTK:
+		dealRedisIncrstkcfg(task);
+		break;
+	}
+/*	dataserver::SetUsrStkCfg stkcfg;
 	stkcfg.set_taskid("1000001");
 	stkcfg.set_usrid("zhangqi");
 	dataserver::UserStockCfg* pUserscfg = stkcfg.add_stkcfg();
@@ -194,6 +234,7 @@ void ProxyServer::onRedisGetResult(hiredis::Hiredis* c,redisReply* reply)
     		break;
   		}
 	}
+*/	
 //	m_redis.command(boost::bind(&ProxyServer::onRedisGetResult,this,_1,_2),"BRPOP test 0");
 }
 
@@ -226,6 +267,37 @@ void ProxyServer::setLoginfo(const char* logprop)
 void ProxyServer::onSetusrstk(const TcpConnectionPtr& conn,	const SetusrstkPtr& message,Timestamp)
 {
 	LOG4CXX_INFO(log4cxx::Logger::getLogger(PROXYSERVER),"recv SetUsrStk!");
+	LOG_INFO << "onSetUsrstk protobuf received...";
+	LOG_INFO << message->DebugString() ;
+
+	std::string pushdata =  pb2json(*message);
+	stringReplace(pushdata," ","");
+/*
+	std::string push = "{";
+	std::string taskid = message->taskid();
+	std::string userid = message->usrid();
+	push += (TASK_TYPE + std::string(":") + taskid); 
+	push += (std::string(",") + USERSTOCK_UID + std::string(":") + userid);
+	int stk_num = message->stkcfg_size();
+	push += (USERSTOCK_STOCKS + std::string(":["));
+	for(int index=0; index<stk_num; index++)
+	{
+		push += std::string("{");
+
+		push += std::string("}");
+	}	
+	push += std::string("]");
+*/
+//	int id = boost::lexical_cast<int>(message->incrementid());
+//	int count = boost::lexical_cast<int>(message->count());
+//	char sztask[512];
+//	sprintf(sztask,"%s:%d;%s:%s;%s:%d;%s:%d",TASK_TYPE,SET_USER_STOCK,TASK_ID,taskid.c_str(),MOBILE_INCR,id,QUERY_COUNT,count);
+//	LOG_INFO << "taskid " <<taskid << " id " << id;
+
+	m_redis.command(boost::bind(&ProxyServer::onPushTask,this,_1,_2),
+					"lpush %s %s",m_redis.getPushTitle().c_str(),pushdata.c_str());
+//	m_taskconns[taskid] = std::string(conn->name().c_str());
+
 } 
 
 void ProxyServer::queue_task(const std::string& task,std::string& result)
@@ -275,29 +347,49 @@ void ProxyServer::onRemoveConnection(const TcpConnectionPtr& conn)
 
 void ProxyServer::dealRedisIncrstkcfg(std::string result)
 {
+	dataserver::IncrUsrStkCfg incr_stkcfg;
+	size_t count = 0;
 	std::stringstream stream;
     stream<<result;
-    std::string type,user,stk,bulletin,maxpirce,incr;
+    std::string type,user,stk,bulletin,maxprice,minprice,run,range,incr;
     try
     {       
 	    ptree pt,p1,p2,p3,p4;
 	    read_json<ptree>(stream,pt);
-	    type = pt.get<std::string>("tasktype");
+	    type = pt.get<std::string>(TASK_TYPE);
 	    std::cout<<"tasktype: "<<type<<std::endl;
-	    p1 = pt.get_child("user");
+	    p1 = pt.get_child(USER);
+		incr_stkcfg.set_taskid(boost::lexical_cast<std::string>(GET_INCR_USERSTK));
 	    for(ptree::iterator it = p1.begin(); it != p1.end(); it++)
 	    {
 			p2 = it->second;
-			user = p2.get<std::string>("UID");
+			user = p2.get<std::string>(USERSTOCK_UID);
 			std::cout<<"UID: "<<user<<std::endl;
-			p3 = p2.get_child("stocks");
+
+			dataserver::SingleUserStkCfg* user_stkcfg = incr_stkcfg.add_items();
+			user_stkcfg->set_usrid(user);
+
+			p3 = p2.get_child(USERSTOCK_STOCKS);
 			for(ptree::iterator iter = p3.begin(); iter != p3.end(); iter++)
 			{
 				p4 = iter->second;
-				stk = p4.get<std::string>("stockcode");
-				bulletin = p4.get<std::string>("bulletin1");
-				incr = p4.get<std::string>("incrementid");
+				stk = p4.get<std::string>(USERSTOCK_STOCKCODE);
+				bulletin = p4.get(USERSTOCK_BULLETIN,"1");
+				incr = p4.get<std::string>(USERSTOCK_INCR);
+				maxprice = p4.get(USERSTOCK_MAXPRICE,"-1.0");
+				minprice = p4.get(USERSTOCK_MINPRICE,"-1.0");
+				run = p4.get(USERSTOCK_RUN,"1");
+				range = p4.get(USERSTOCK_RANGE,"-10000");
 				std::cout<<stk<<","<<bulletin<<","<<incr<<std::endl;
+
+				dataserver::UserStockCfg* pUsercfg = user_stkcfg->add_stkcfg();
+				pUsercfg->set_stockcode(stk);
+				pUsercfg->set_bulletin(boost::lexical_cast<int>(bulletin));
+				pUsercfg->set_max_price(boost::lexical_cast<double>(maxprice));
+				pUsercfg->set_min_price(boost::lexical_cast<double>(minprice));
+				pUsercfg->set_run(boost::lexical_cast<int>(run));
+				pUsercfg->set_incrementid(boost::lexical_cast<long long int>(incr));
+				count++;
 			 }
 		}
 	}
@@ -305,7 +397,20 @@ void ProxyServer::dealRedisIncrstkcfg(std::string result)
 	{
 		std::cout << "error for ptree parse.." << std::endl;
 	}
-
+	google::protobuf::Message* protomsg = NULL;
+	protomsg = &incr_stkcfg;
+	std::string task = "";
+	std::string connname = m_taskconns[task];
+	LOG_INFO << "connname " << connname << ", task "<<task;
+	for(ConnectionMap::iterator it(m_conns.begin()); it != m_conns.end(); ++it)
+	{
+		TcpConnectionPtr conn = it->second;
+  		if(connname == std::string(conn->name().c_str()))
+  		{			
+			m_codec.send(conn,*protomsg);
+    		break;
+  		}
+	}
 }
 
 std::string toString(long long value)
@@ -348,4 +453,24 @@ std::string redisReplyToString(const redisReply* reply)
   	str += " }";
 
   	return str;
+}
+
+void ProxyServer::dealRedisSetUserLoad(std::string result)
+{
+
+}
+
+void ProxyServer::dealRedisGetUserLoad(std::string result)
+{
+
+}
+
+void ProxyServer::dealRedisSetUserStock(std::string result)
+{
+
+}
+
+void ProxyServer::dealRedisGetUserStock(std::string result)
+{
+
 }

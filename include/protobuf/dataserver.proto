@@ -51,7 +51,7 @@ message SingleUserStkCfg
 message IncrUsrStkCfg
 {
 	required string taskid = 1;
-	repeated SingleUserStkCfg = 2;	
+	repeated SingleUserStkCfg items = 2;	
 }
 
 message GetUsrStkCfg
@@ -64,7 +64,7 @@ message GetUsrStkCfg
 message GetIncrStkCfg
 {
 	required int64 incrementid = 1;
-	required int64 count = 2;
+	required int64 count = 2[default=10];
 	required string taskid = 3;	
 }
 

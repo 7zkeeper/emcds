@@ -236,9 +236,32 @@ datatask/CMakeFiles/datatask.dir/__/include/zookeeper/ksm_zk.cpp.o.provides: dat
 
 datatask/CMakeFiles/datatask.dir/__/include/zookeeper/ksm_zk.cpp.o.provides.build: datatask/CMakeFiles/datatask.dir/__/include/zookeeper/ksm_zk.cpp.o
 
+datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o: datatask/CMakeFiles/datatask.dir/flags.make
+datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o: ../include/utility/json2pb.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhangqi/project/dataservice/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o"
+	cd /home/zhangqi/project/dataservice/build/datatask && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o -c /home/zhangqi/project/dataservice/include/utility/json2pb.cc
+
+datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.i"
+	cd /home/zhangqi/project/dataservice/build/datatask && g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/zhangqi/project/dataservice/include/utility/json2pb.cc > CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.i
+
+datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.s"
+	cd /home/zhangqi/project/dataservice/build/datatask && g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/zhangqi/project/dataservice/include/utility/json2pb.cc -o CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.s
+
+datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o.requires:
+.PHONY : datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o.requires
+
+datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o.provides: datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o.requires
+	$(MAKE) -f datatask/CMakeFiles/datatask.dir/build.make datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o.provides.build
+.PHONY : datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o.provides
+
+datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o.provides.build: datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o
+
 datatask/CMakeFiles/datatask.dir/__/include/utility/utility.cpp.o: datatask/CMakeFiles/datatask.dir/flags.make
 datatask/CMakeFiles/datatask.dir/__/include/utility/utility.cpp.o: ../include/utility/utility.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhangqi/project/dataservice/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhangqi/project/dataservice/build/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object datatask/CMakeFiles/datatask.dir/__/include/utility/utility.cpp.o"
 	cd /home/zhangqi/project/dataservice/build/datatask && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/datatask.dir/__/include/utility/utility.cpp.o -c /home/zhangqi/project/dataservice/include/utility/utility.cpp
 
@@ -269,6 +292,7 @@ datatask_OBJECTS = \
 "CMakeFiles/datatask.dir/__/include/mongodb/BSONCreator.cpp.o" \
 "CMakeFiles/datatask.dir/__/include/mongodb/em_mongodb.cpp.o" \
 "CMakeFiles/datatask.dir/__/include/zookeeper/ksm_zk.cpp.o" \
+"CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o" \
 "CMakeFiles/datatask.dir/__/include/utility/utility.cpp.o"
 
 # External object files for target datatask
@@ -282,6 +306,7 @@ datatask/Debug/datatask: datatask/CMakeFiles/datatask.dir/__/include/redis/redis
 datatask/Debug/datatask: datatask/CMakeFiles/datatask.dir/__/include/mongodb/BSONCreator.cpp.o
 datatask/Debug/datatask: datatask/CMakeFiles/datatask.dir/__/include/mongodb/em_mongodb.cpp.o
 datatask/Debug/datatask: datatask/CMakeFiles/datatask.dir/__/include/zookeeper/ksm_zk.cpp.o
+datatask/Debug/datatask: datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o
 datatask/Debug/datatask: datatask/CMakeFiles/datatask.dir/__/include/utility/utility.cpp.o
 datatask/Debug/datatask: datatask/CMakeFiles/datatask.dir/build.make
 datatask/Debug/datatask: datatask/CMakeFiles/datatask.dir/link.txt
@@ -300,6 +325,7 @@ datatask/CMakeFiles/datatask.dir/requires: datatask/CMakeFiles/datatask.dir/__/i
 datatask/CMakeFiles/datatask.dir/requires: datatask/CMakeFiles/datatask.dir/__/include/mongodb/BSONCreator.cpp.o.requires
 datatask/CMakeFiles/datatask.dir/requires: datatask/CMakeFiles/datatask.dir/__/include/mongodb/em_mongodb.cpp.o.requires
 datatask/CMakeFiles/datatask.dir/requires: datatask/CMakeFiles/datatask.dir/__/include/zookeeper/ksm_zk.cpp.o.requires
+datatask/CMakeFiles/datatask.dir/requires: datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o.requires
 datatask/CMakeFiles/datatask.dir/requires: datatask/CMakeFiles/datatask.dir/__/include/utility/utility.cpp.o.requires
 .PHONY : datatask/CMakeFiles/datatask.dir/requires
 

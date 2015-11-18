@@ -21,6 +21,10 @@ datatask/CMakeFiles/datatask.dir/__/include/redis/redisworker.cpp.o: ../include/
 datatask/CMakeFiles/datatask.dir/__/include/redis/redisworker.cpp.o: ../include/redis/redisworker.cpp
 datatask/CMakeFiles/datatask.dir/__/include/redis/redisworker.cpp.o: ../include/redis/redisworker.h
 
+datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o: ../include/utility/bin2ascii.h
+datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o: ../include/utility/json2pb.cc
+datatask/CMakeFiles/datatask.dir/__/include/utility/json2pb.cc.o: ../include/utility/json2pb.h
+
 datatask/CMakeFiles/datatask.dir/__/include/utility/utility.cpp.o: ../include/utility/utility.cpp
 datatask/CMakeFiles/datatask.dir/__/include/utility/utility.cpp.o: ../include/utility/utility.h
 

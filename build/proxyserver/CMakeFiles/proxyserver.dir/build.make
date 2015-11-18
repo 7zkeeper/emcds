@@ -52,32 +52,9 @@ include proxyserver/CMakeFiles/proxyserver.dir/progress.make
 # Include the compile flags for this target's objects.
 include proxyserver/CMakeFiles/proxyserver.dir/flags.make
 
-proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o: proxyserver/CMakeFiles/proxyserver.dir/flags.make
-proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o: ../proxyserver/Hiredis.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhangqi/project/dataservice/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o"
-	cd /home/zhangqi/project/dataservice/build/proxyserver && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/proxyserver.dir/Hiredis.cpp.o -c /home/zhangqi/project/dataservice/proxyserver/Hiredis.cpp
-
-proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/proxyserver.dir/Hiredis.cpp.i"
-	cd /home/zhangqi/project/dataservice/build/proxyserver && g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/zhangqi/project/dataservice/proxyserver/Hiredis.cpp > CMakeFiles/proxyserver.dir/Hiredis.cpp.i
-
-proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/proxyserver.dir/Hiredis.cpp.s"
-	cd /home/zhangqi/project/dataservice/build/proxyserver && g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/zhangqi/project/dataservice/proxyserver/Hiredis.cpp -o CMakeFiles/proxyserver.dir/Hiredis.cpp.s
-
-proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.requires:
-.PHONY : proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.requires
-
-proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.provides: proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.requires
-	$(MAKE) -f proxyserver/CMakeFiles/proxyserver.dir/build.make proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.provides.build
-.PHONY : proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.provides
-
-proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.provides.build: proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o
-
 proxyserver/CMakeFiles/proxyserver.dir/proxy.cpp.o: proxyserver/CMakeFiles/proxyserver.dir/flags.make
 proxyserver/CMakeFiles/proxyserver.dir/proxy.cpp.o: ../proxyserver/proxy.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhangqi/project/dataservice/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhangqi/project/dataservice/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object proxyserver/CMakeFiles/proxyserver.dir/proxy.cpp.o"
 	cd /home/zhangqi/project/dataservice/build/proxyserver && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/proxyserver.dir/proxy.cpp.o -c /home/zhangqi/project/dataservice/proxyserver/proxy.cpp
 
@@ -97,6 +74,29 @@ proxyserver/CMakeFiles/proxyserver.dir/proxy.cpp.o.provides: proxyserver/CMakeFi
 .PHONY : proxyserver/CMakeFiles/proxyserver.dir/proxy.cpp.o.provides
 
 proxyserver/CMakeFiles/proxyserver.dir/proxy.cpp.o.provides.build: proxyserver/CMakeFiles/proxyserver.dir/proxy.cpp.o
+
+proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o: proxyserver/CMakeFiles/proxyserver.dir/flags.make
+proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o: ../proxyserver/Hiredis.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhangqi/project/dataservice/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o"
+	cd /home/zhangqi/project/dataservice/build/proxyserver && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/proxyserver.dir/Hiredis.cpp.o -c /home/zhangqi/project/dataservice/proxyserver/Hiredis.cpp
+
+proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/proxyserver.dir/Hiredis.cpp.i"
+	cd /home/zhangqi/project/dataservice/build/proxyserver && g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/zhangqi/project/dataservice/proxyserver/Hiredis.cpp > CMakeFiles/proxyserver.dir/Hiredis.cpp.i
+
+proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/proxyserver.dir/Hiredis.cpp.s"
+	cd /home/zhangqi/project/dataservice/build/proxyserver && g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/zhangqi/project/dataservice/proxyserver/Hiredis.cpp -o CMakeFiles/proxyserver.dir/Hiredis.cpp.s
+
+proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.requires:
+.PHONY : proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.requires
+
+proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.provides: proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.requires
+	$(MAKE) -f proxyserver/CMakeFiles/proxyserver.dir/build.make proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.provides.build
+.PHONY : proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.provides
+
+proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.provides.build: proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o
 
 proxyserver/CMakeFiles/proxyserver.dir/proxyserver.cpp.o: proxyserver/CMakeFiles/proxyserver.dir/flags.make
 proxyserver/CMakeFiles/proxyserver.dir/proxyserver.cpp.o: ../proxyserver/proxyserver.cpp
@@ -259,9 +259,32 @@ proxyserver/CMakeFiles/proxyserver.dir/__/include/zookeeper/ksm_zk.cpp.o.provide
 
 proxyserver/CMakeFiles/proxyserver.dir/__/include/zookeeper/ksm_zk.cpp.o.provides.build: proxyserver/CMakeFiles/proxyserver.dir/__/include/zookeeper/ksm_zk.cpp.o
 
+proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o: proxyserver/CMakeFiles/proxyserver.dir/flags.make
+proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o: ../include/utility/json2pb.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhangqi/project/dataservice/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o"
+	cd /home/zhangqi/project/dataservice/build/proxyserver && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o -c /home/zhangqi/project/dataservice/include/utility/json2pb.cc
+
+proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.i"
+	cd /home/zhangqi/project/dataservice/build/proxyserver && g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/zhangqi/project/dataservice/include/utility/json2pb.cc > CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.i
+
+proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.s"
+	cd /home/zhangqi/project/dataservice/build/proxyserver && g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/zhangqi/project/dataservice/include/utility/json2pb.cc -o CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.s
+
+proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o.requires:
+.PHONY : proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o.requires
+
+proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o.provides: proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o.requires
+	$(MAKE) -f proxyserver/CMakeFiles/proxyserver.dir/build.make proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o.provides.build
+.PHONY : proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o.provides
+
+proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o.provides.build: proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o
+
 proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/utility.cpp.o: proxyserver/CMakeFiles/proxyserver.dir/flags.make
 proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/utility.cpp.o: ../include/utility/utility.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhangqi/project/dataservice/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhangqi/project/dataservice/build/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/utility.cpp.o"
 	cd /home/zhangqi/project/dataservice/build/proxyserver && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/proxyserver.dir/__/include/utility/utility.cpp.o -c /home/zhangqi/project/dataservice/include/utility/utility.cpp
 
@@ -284,8 +307,8 @@ proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/utility.cpp.o.provides
 
 # Object files for target proxyserver
 proxyserver_OBJECTS = \
-"CMakeFiles/proxyserver.dir/Hiredis.cpp.o" \
 "CMakeFiles/proxyserver.dir/proxy.cpp.o" \
+"CMakeFiles/proxyserver.dir/Hiredis.cpp.o" \
 "CMakeFiles/proxyserver.dir/proxyserver.cpp.o" \
 "CMakeFiles/proxyserver.dir/__/include/inifile/inifile.cpp.o" \
 "CMakeFiles/proxyserver.dir/__/include/inifile/stringutil.cpp.o" \
@@ -293,13 +316,14 @@ proxyserver_OBJECTS = \
 "CMakeFiles/proxyserver.dir/__/include/protobuf/codec.cc.o" \
 "CMakeFiles/proxyserver.dir/__/include/protobuf/dataserver.pb.cc.o" \
 "CMakeFiles/proxyserver.dir/__/include/zookeeper/ksm_zk.cpp.o" \
+"CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o" \
 "CMakeFiles/proxyserver.dir/__/include/utility/utility.cpp.o"
 
 # External object files for target proxyserver
 proxyserver_EXTERNAL_OBJECTS =
 
-proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o
 proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/proxy.cpp.o
+proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o
 proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/proxyserver.cpp.o
 proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/__/include/inifile/inifile.cpp.o
 proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/__/include/inifile/stringutil.cpp.o
@@ -307,6 +331,7 @@ proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/__/include
 proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/__/include/protobuf/codec.cc.o
 proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/__/include/protobuf/dataserver.pb.cc.o
 proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/__/include/zookeeper/ksm_zk.cpp.o
+proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o
 proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/utility.cpp.o
 proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/build.make
 proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/link.txt
@@ -317,8 +342,8 @@ proxyserver/Debug/proxyserver: proxyserver/CMakeFiles/proxyserver.dir/link.txt
 proxyserver/CMakeFiles/proxyserver.dir/build: proxyserver/Debug/proxyserver
 .PHONY : proxyserver/CMakeFiles/proxyserver.dir/build
 
-proxyserver/CMakeFiles/proxyserver.dir/requires: proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.requires
 proxyserver/CMakeFiles/proxyserver.dir/requires: proxyserver/CMakeFiles/proxyserver.dir/proxy.cpp.o.requires
+proxyserver/CMakeFiles/proxyserver.dir/requires: proxyserver/CMakeFiles/proxyserver.dir/Hiredis.cpp.o.requires
 proxyserver/CMakeFiles/proxyserver.dir/requires: proxyserver/CMakeFiles/proxyserver.dir/proxyserver.cpp.o.requires
 proxyserver/CMakeFiles/proxyserver.dir/requires: proxyserver/CMakeFiles/proxyserver.dir/__/include/inifile/inifile.cpp.o.requires
 proxyserver/CMakeFiles/proxyserver.dir/requires: proxyserver/CMakeFiles/proxyserver.dir/__/include/inifile/stringutil.cpp.o.requires
@@ -326,6 +351,7 @@ proxyserver/CMakeFiles/proxyserver.dir/requires: proxyserver/CMakeFiles/proxyser
 proxyserver/CMakeFiles/proxyserver.dir/requires: proxyserver/CMakeFiles/proxyserver.dir/__/include/protobuf/codec.cc.o.requires
 proxyserver/CMakeFiles/proxyserver.dir/requires: proxyserver/CMakeFiles/proxyserver.dir/__/include/protobuf/dataserver.pb.cc.o.requires
 proxyserver/CMakeFiles/proxyserver.dir/requires: proxyserver/CMakeFiles/proxyserver.dir/__/include/zookeeper/ksm_zk.cpp.o.requires
+proxyserver/CMakeFiles/proxyserver.dir/requires: proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o.requires
 proxyserver/CMakeFiles/proxyserver.dir/requires: proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/utility.cpp.o.requires
 .PHONY : proxyserver/CMakeFiles/proxyserver.dir/requires
 

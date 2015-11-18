@@ -26,6 +26,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* SetUsrStkCfg_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SetUsrStkCfg_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SingleUserStkCfg_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SingleUserStkCfg_reflection_ = NULL;
+const ::google::protobuf::Descriptor* IncrUsrStkCfg_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  IncrUsrStkCfg_reflection_ = NULL;
 const ::google::protobuf::Descriptor* GetUsrStkCfg_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   GetUsrStkCfg_reflection_ = NULL;
@@ -100,7 +106,39 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SetUsrStkCfg));
-  GetUsrStkCfg_descriptor_ = file->message_type(2);
+  SingleUserStkCfg_descriptor_ = file->message_type(2);
+  static const int SingleUserStkCfg_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SingleUserStkCfg, usrid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SingleUserStkCfg, stkcfg_),
+  };
+  SingleUserStkCfg_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SingleUserStkCfg_descriptor_,
+      SingleUserStkCfg::default_instance_,
+      SingleUserStkCfg_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SingleUserStkCfg, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SingleUserStkCfg, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SingleUserStkCfg));
+  IncrUsrStkCfg_descriptor_ = file->message_type(3);
+  static const int IncrUsrStkCfg_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IncrUsrStkCfg, taskid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IncrUsrStkCfg, items_),
+  };
+  IncrUsrStkCfg_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      IncrUsrStkCfg_descriptor_,
+      IncrUsrStkCfg::default_instance_,
+      IncrUsrStkCfg_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IncrUsrStkCfg, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IncrUsrStkCfg, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(IncrUsrStkCfg));
+  GetUsrStkCfg_descriptor_ = file->message_type(4);
   static const int GetUsrStkCfg_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetUsrStkCfg, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetUsrStkCfg, usrid_),
@@ -117,7 +155,7 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GetUsrStkCfg));
-  GetIncrStkCfg_descriptor_ = file->message_type(3);
+  GetIncrStkCfg_descriptor_ = file->message_type(5);
   static const int GetIncrStkCfg_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetIncrStkCfg, incrementid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetIncrStkCfg, count_),
@@ -134,7 +172,7 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GetIncrStkCfg));
-  UidDevices_descriptor_ = file->message_type(4);
+  UidDevices_descriptor_ = file->message_type(6);
   static const int UidDevices_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UidDevices, osversion_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UidDevices, comment_),
@@ -170,7 +208,7 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(UidDevices_appinfos));
-  SetUidDevices_descriptor_ = file->message_type(5);
+  SetUidDevices_descriptor_ = file->message_type(7);
   static const int SetUidDevices_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetUidDevices, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetUidDevices, device_),
@@ -187,7 +225,7 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SetUidDevices));
-  GetUidDevices_descriptor_ = file->message_type(6);
+  GetUidDevices_descriptor_ = file->message_type(8);
   static const int GetUidDevices_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetUidDevices, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetUidDevices, device_),
@@ -204,7 +242,7 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GetUidDevices));
-  UsrStockRes_descriptor_ = file->message_type(7);
+  UsrStockRes_descriptor_ = file->message_type(9);
   static const int UsrStockRes_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UsrStockRes, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UsrStockRes, response_code_),
@@ -222,7 +260,7 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(UsrStockRes));
-  UidDeviceRes_descriptor_ = file->message_type(8);
+  UidDeviceRes_descriptor_ = file->message_type(10);
   static const int UidDeviceRes_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UidDeviceRes, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UidDeviceRes, reponse_code_),
@@ -259,6 +297,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SetUsrStkCfg_descriptor_, &SetUsrStkCfg::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SingleUserStkCfg_descriptor_, &SingleUserStkCfg::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    IncrUsrStkCfg_descriptor_, &IncrUsrStkCfg::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     GetUsrStkCfg_descriptor_, &GetUsrStkCfg::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     GetIncrStkCfg_descriptor_, &GetIncrStkCfg::default_instance());
@@ -283,6 +325,10 @@ void protobuf_ShutdownFile_dataserver_2eproto() {
   delete UserStockCfg_reflection_;
   delete SetUsrStkCfg::default_instance_;
   delete SetUsrStkCfg_reflection_;
+  delete SingleUserStkCfg::default_instance_;
+  delete SingleUserStkCfg_reflection_;
+  delete IncrUsrStkCfg::default_instance_;
+  delete IncrUsrStkCfg_reflection_;
   delete GetUsrStkCfg::default_instance_;
   delete GetUsrStkCfg_reflection_;
   delete GetIncrStkCfg::default_instance_;
@@ -314,36 +360,42 @@ void protobuf_AddDesc_dataserver_2eproto() {
     "\004 \001(\002\022\r\n\005range\030\005 \001(\002\022\016\n\003run\030\006 \002(\003:\0011\022\023\n\013"
     "incrementid\030\007 \002(\003\"W\n\014SetUsrStkCfg\022\016\n\006tas"
     "kid\030\001 \002(\t\022\r\n\005usrid\030\002 \002(\t\022(\n\006stkcfg\030\003 \003(\013"
-    "2\030.dataserver.UserStockCfg\"B\n\014GetUsrStkC"
-    "fg\022\016\n\006taskid\030\001 \002(\t\022\r\n\005usrid\030\002 \002(\t\022\023\n\013inc"
-    "rementid\030\003 \001(\003\"C\n\rGetIncrStkCfg\022\023\n\013incre"
-    "mentid\030\001 \002(\003\022\r\n\005count\030\002 \002(\003\022\016\n\006taskid\030\003 "
-    "\002(\t\"\336\001\n\nUidDevices\022\021\n\tosversion\030\001 \002(\t\022\017\n"
-    "\007comment\030\002 \001(\t\022-\n\004apps\030\003 \003(\0132\037.dataserve"
-    "r.UidDevices.appinfos\032}\n\010appinfos\022\017\n\007app"
-    "type\030\001 \002(\t\022)\n\004flag\030\002 \002(\0162\024.dataserver.fl"
-    "agtype:\005VALID\022\017\n\007lastuid\030\003 \002(\t\022\020\n\010lastti"
-    "me\030\004 \002(\003\022\022\n\nappversion\030\005 \002(\t\"U\n\rSetUidDe"
-    "vices\022\016\n\006taskid\030\001 \002(\t\022\016\n\006device\030\002 \002(\t\022$\n"
-    "\004data\030\003 \003(\0132\026.dataserver.UidDevices\"D\n\rG"
-    "etUidDevices\022\016\n\006taskid\030\001 \002(\t\022\016\n\006device\030\002"
-    " \002(\t\022\023\n\013incrementid\030\003 \001(\003\"\205\001\n\013UsrStockRe"
-    "s\022\016\n\006taskid\030\001 \002(\t\022/\n\rresponse_code\030\002 \002(\016"
-    "2\030.dataserver.ResponseCode\022\r\n\005usrid\030\003 \001("
-    "\t\022&\n\004data\030\004 \003(\0132\030.dataserver.UserStockCf"
-    "g\"\204\001\n\014UidDeviceRes\022\016\n\006taskid\030\001 \002(\t\022.\n\014re"
-    "ponse_code\030\002 \002(\0162\030.dataserver.ResponseCo"
-    "de\022\016\n\006device\030\003 \001(\t\022$\n\004data\030\004 \003(\0132\026.datas"
-    "erver.UidDevices*\221\001\n\014ResponseCode\022\006\n\002OK\020"
-    "\000\022\025\n\010NOT_FIND\020\377\377\377\377\377\377\377\377\377\001\022\025\n\010TIME_OUT\020\376\377\377"
-    "\377\377\377\377\377\377\001\022\034\n\017SERVER_INTERNAL\020\375\377\377\377\377\377\377\377\377\001\022\027\n"
-    "\nEXIST_TASK\020\374\377\377\377\377\377\377\377\377\001\022\024\n\007UNKNOWN\020\230\370\377\377\377\377"
-    "\377\377\377\001*+\n\010flagtype\022\t\n\005VALID\020\001\022\024\n\007INVALID\020\377"
-    "\377\377\377\377\377\377\377\377\001", 1249);
+    "2\030.dataserver.UserStockCfg\"K\n\020SingleUser"
+    "StkCfg\022\r\n\005usrid\030\001 \002(\t\022(\n\006stkcfg\030\002 \003(\0132\030."
+    "dataserver.UserStockCfg\"L\n\rIncrUsrStkCfg"
+    "\022\016\n\006taskid\030\001 \002(\t\022+\n\005items\030\002 \003(\0132\034.datase"
+    "rver.SingleUserStkCfg\"B\n\014GetUsrStkCfg\022\016\n"
+    "\006taskid\030\001 \002(\t\022\r\n\005usrid\030\002 \002(\t\022\023\n\013incremen"
+    "tid\030\003 \001(\003\"C\n\rGetIncrStkCfg\022\023\n\013incrementi"
+    "d\030\001 \002(\003\022\r\n\005count\030\002 \002(\003\022\016\n\006taskid\030\003 \002(\t\"\336"
+    "\001\n\nUidDevices\022\021\n\tosversion\030\001 \002(\t\022\017\n\007comm"
+    "ent\030\002 \001(\t\022-\n\004apps\030\003 \003(\0132\037.dataserver.Uid"
+    "Devices.appinfos\032}\n\010appinfos\022\017\n\007apptype\030"
+    "\001 \002(\t\022)\n\004flag\030\002 \002(\0162\024.dataserver.flagtyp"
+    "e:\005VALID\022\017\n\007lastuid\030\003 \002(\t\022\020\n\010lasttime\030\004 "
+    "\002(\003\022\022\n\nappversion\030\005 \002(\t\"U\n\rSetUidDevices"
+    "\022\016\n\006taskid\030\001 \002(\t\022\016\n\006device\030\002 \002(\t\022$\n\004data"
+    "\030\003 \003(\0132\026.dataserver.UidDevices\"D\n\rGetUid"
+    "Devices\022\016\n\006taskid\030\001 \002(\t\022\016\n\006device\030\002 \002(\t\022"
+    "\023\n\013incrementid\030\003 \001(\003\"\205\001\n\013UsrStockRes\022\016\n\006"
+    "taskid\030\001 \002(\t\022/\n\rresponse_code\030\002 \002(\0162\030.da"
+    "taserver.ResponseCode\022\r\n\005usrid\030\003 \001(\t\022&\n\004"
+    "data\030\004 \003(\0132\030.dataserver.UserStockCfg\"\204\001\n"
+    "\014UidDeviceRes\022\016\n\006taskid\030\001 \002(\t\022.\n\014reponse"
+    "_code\030\002 \002(\0162\030.dataserver.ResponseCode\022\016\n"
+    "\006device\030\003 \001(\t\022$\n\004data\030\004 \003(\0132\026.dataserver"
+    ".UidDevices*\221\001\n\014ResponseCode\022\006\n\002OK\020\000\022\025\n\010"
+    "NOT_FIND\020\377\377\377\377\377\377\377\377\377\001\022\025\n\010TIME_OUT\020\376\377\377\377\377\377\377\377"
+    "\377\001\022\034\n\017SERVER_INTERNAL\020\375\377\377\377\377\377\377\377\377\001\022\027\n\nEXIS"
+    "T_TASK\020\374\377\377\377\377\377\377\377\377\001\022\024\n\007UNKNOWN\020\230\370\377\377\377\377\377\377\377\001*"
+    "+\n\010flagtype\022\t\n\005VALID\020\001\022\024\n\007INVALID\020\377\377\377\377\377\377"
+    "\377\377\377\001", 1404);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dataserver.proto", &protobuf_RegisterTypes);
   UserStockCfg::default_instance_ = new UserStockCfg();
   SetUsrStkCfg::default_instance_ = new SetUsrStkCfg();
+  SingleUserStkCfg::default_instance_ = new SingleUserStkCfg();
+  IncrUsrStkCfg::default_instance_ = new IncrUsrStkCfg();
   GetUsrStkCfg::default_instance_ = new GetUsrStkCfg();
   GetIncrStkCfg::default_instance_ = new GetIncrStkCfg();
   UidDevices::default_instance_ = new UidDevices();
@@ -354,6 +406,8 @@ void protobuf_AddDesc_dataserver_2eproto() {
   UidDeviceRes::default_instance_ = new UidDeviceRes();
   UserStockCfg::default_instance_->InitAsDefaultInstance();
   SetUsrStkCfg::default_instance_->InitAsDefaultInstance();
+  SingleUserStkCfg::default_instance_->InitAsDefaultInstance();
+  IncrUsrStkCfg::default_instance_->InitAsDefaultInstance();
   GetUsrStkCfg::default_instance_->InitAsDefaultInstance();
   GetIncrStkCfg::default_instance_->InitAsDefaultInstance();
   UidDevices::default_instance_->InitAsDefaultInstance();
@@ -1186,6 +1240,544 @@ void SetUsrStkCfg::Swap(SetUsrStkCfg* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = SetUsrStkCfg_descriptor_;
   metadata.reflection = SetUsrStkCfg_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SingleUserStkCfg::kUsridFieldNumber;
+const int SingleUserStkCfg::kStkcfgFieldNumber;
+#endif  // !_MSC_VER
+
+SingleUserStkCfg::SingleUserStkCfg()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SingleUserStkCfg::InitAsDefaultInstance() {
+}
+
+SingleUserStkCfg::SingleUserStkCfg(const SingleUserStkCfg& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SingleUserStkCfg::SharedCtor() {
+  _cached_size_ = 0;
+  usrid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SingleUserStkCfg::~SingleUserStkCfg() {
+  SharedDtor();
+}
+
+void SingleUserStkCfg::SharedDtor() {
+  if (usrid_ != &::google::protobuf::internal::kEmptyString) {
+    delete usrid_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void SingleUserStkCfg::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SingleUserStkCfg::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SingleUserStkCfg_descriptor_;
+}
+
+const SingleUserStkCfg& SingleUserStkCfg::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dataserver_2eproto();
+  return *default_instance_;
+}
+
+SingleUserStkCfg* SingleUserStkCfg::default_instance_ = NULL;
+
+SingleUserStkCfg* SingleUserStkCfg::New() const {
+  return new SingleUserStkCfg;
+}
+
+void SingleUserStkCfg::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_usrid()) {
+      if (usrid_ != &::google::protobuf::internal::kEmptyString) {
+        usrid_->clear();
+      }
+    }
+  }
+  stkcfg_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SingleUserStkCfg::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string usrid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_usrid()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->usrid().data(), this->usrid().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_stkcfg;
+        break;
+      }
+
+      // repeated .dataserver.UserStockCfg stkcfg = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_stkcfg:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_stkcfg()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_stkcfg;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SingleUserStkCfg::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required string usrid = 1;
+  if (has_usrid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->usrid().data(), this->usrid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->usrid(), output);
+  }
+
+  // repeated .dataserver.UserStockCfg stkcfg = 2;
+  for (int i = 0; i < this->stkcfg_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->stkcfg(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SingleUserStkCfg::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string usrid = 1;
+  if (has_usrid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->usrid().data(), this->usrid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->usrid(), target);
+  }
+
+  // repeated .dataserver.UserStockCfg stkcfg = 2;
+  for (int i = 0; i < this->stkcfg_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->stkcfg(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SingleUserStkCfg::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string usrid = 1;
+    if (has_usrid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->usrid());
+    }
+
+  }
+  // repeated .dataserver.UserStockCfg stkcfg = 2;
+  total_size += 1 * this->stkcfg_size();
+  for (int i = 0; i < this->stkcfg_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->stkcfg(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SingleUserStkCfg::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SingleUserStkCfg* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SingleUserStkCfg*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SingleUserStkCfg::MergeFrom(const SingleUserStkCfg& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  stkcfg_.MergeFrom(from.stkcfg_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_usrid()) {
+      set_usrid(from.usrid());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SingleUserStkCfg::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SingleUserStkCfg::CopyFrom(const SingleUserStkCfg& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SingleUserStkCfg::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  for (int i = 0; i < stkcfg_size(); i++) {
+    if (!this->stkcfg(i).IsInitialized()) return false;
+  }
+  return true;
+}
+
+void SingleUserStkCfg::Swap(SingleUserStkCfg* other) {
+  if (other != this) {
+    std::swap(usrid_, other->usrid_);
+    stkcfg_.Swap(&other->stkcfg_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SingleUserStkCfg::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SingleUserStkCfg_descriptor_;
+  metadata.reflection = SingleUserStkCfg_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int IncrUsrStkCfg::kTaskidFieldNumber;
+const int IncrUsrStkCfg::kItemsFieldNumber;
+#endif  // !_MSC_VER
+
+IncrUsrStkCfg::IncrUsrStkCfg()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void IncrUsrStkCfg::InitAsDefaultInstance() {
+}
+
+IncrUsrStkCfg::IncrUsrStkCfg(const IncrUsrStkCfg& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void IncrUsrStkCfg::SharedCtor() {
+  _cached_size_ = 0;
+  taskid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+IncrUsrStkCfg::~IncrUsrStkCfg() {
+  SharedDtor();
+}
+
+void IncrUsrStkCfg::SharedDtor() {
+  if (taskid_ != &::google::protobuf::internal::kEmptyString) {
+    delete taskid_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void IncrUsrStkCfg::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* IncrUsrStkCfg::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return IncrUsrStkCfg_descriptor_;
+}
+
+const IncrUsrStkCfg& IncrUsrStkCfg::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dataserver_2eproto();
+  return *default_instance_;
+}
+
+IncrUsrStkCfg* IncrUsrStkCfg::default_instance_ = NULL;
+
+IncrUsrStkCfg* IncrUsrStkCfg::New() const {
+  return new IncrUsrStkCfg;
+}
+
+void IncrUsrStkCfg::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_taskid()) {
+      if (taskid_ != &::google::protobuf::internal::kEmptyString) {
+        taskid_->clear();
+      }
+    }
+  }
+  items_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool IncrUsrStkCfg::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string taskid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_taskid()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->taskid().data(), this->taskid().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_items;
+        break;
+      }
+
+      // repeated .dataserver.SingleUserStkCfg items = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_items:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_items()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_items;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void IncrUsrStkCfg::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required string taskid = 1;
+  if (has_taskid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->taskid().data(), this->taskid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->taskid(), output);
+  }
+
+  // repeated .dataserver.SingleUserStkCfg items = 2;
+  for (int i = 0; i < this->items_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->items(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* IncrUsrStkCfg::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string taskid = 1;
+  if (has_taskid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->taskid().data(), this->taskid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->taskid(), target);
+  }
+
+  // repeated .dataserver.SingleUserStkCfg items = 2;
+  for (int i = 0; i < this->items_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->items(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int IncrUsrStkCfg::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string taskid = 1;
+    if (has_taskid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->taskid());
+    }
+
+  }
+  // repeated .dataserver.SingleUserStkCfg items = 2;
+  total_size += 1 * this->items_size();
+  for (int i = 0; i < this->items_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->items(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void IncrUsrStkCfg::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const IncrUsrStkCfg* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const IncrUsrStkCfg*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void IncrUsrStkCfg::MergeFrom(const IncrUsrStkCfg& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  items_.MergeFrom(from.items_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_taskid()) {
+      set_taskid(from.taskid());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void IncrUsrStkCfg::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void IncrUsrStkCfg::CopyFrom(const IncrUsrStkCfg& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool IncrUsrStkCfg::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  for (int i = 0; i < items_size(); i++) {
+    if (!this->items(i).IsInitialized()) return false;
+  }
+  return true;
+}
+
+void IncrUsrStkCfg::Swap(IncrUsrStkCfg* other) {
+  if (other != this) {
+    std::swap(taskid_, other->taskid_);
+    items_.Swap(&other->items_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata IncrUsrStkCfg::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = IncrUsrStkCfg_descriptor_;
+  metadata.reflection = IncrUsrStkCfg_reflection_;
   return metadata;
 }
 

@@ -10,6 +10,7 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/zhangqi/project/dataservice/include/protobuf/codec.cc" "/home/zhangqi/project/dataservice/build/proxyserver/CMakeFiles/proxyserver.dir/__/include/protobuf/codec.cc.o"
   "/home/zhangqi/project/dataservice/include/protobuf/dataserver.pb.cc" "/home/zhangqi/project/dataservice/build/proxyserver/CMakeFiles/proxyserver.dir/__/include/protobuf/dataserver.pb.cc.o"
   "/home/zhangqi/project/dataservice/include/redis/redisworker.cpp" "/home/zhangqi/project/dataservice/build/proxyserver/CMakeFiles/proxyserver.dir/__/include/redis/redisworker.cpp.o"
+  "/home/zhangqi/project/dataservice/include/utility/json2pb.cc" "/home/zhangqi/project/dataservice/build/proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/json2pb.cc.o"
   "/home/zhangqi/project/dataservice/include/utility/utility.cpp" "/home/zhangqi/project/dataservice/build/proxyserver/CMakeFiles/proxyserver.dir/__/include/utility/utility.cpp.o"
   "/home/zhangqi/project/dataservice/include/zookeeper/ksm_zk.cpp" "/home/zhangqi/project/dataservice/build/proxyserver/CMakeFiles/proxyserver.dir/__/include/zookeeper/ksm_zk.cpp.o"
   "/home/zhangqi/project/dataservice/proxyserver/proxy.cpp" "/home/zhangqi/project/dataservice/build/proxyserver/CMakeFiles/proxyserver.dir/proxy.cpp.o"

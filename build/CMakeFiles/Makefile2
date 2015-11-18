@@ -77,7 +77,7 @@ datatask/preinstall:
 datatask/CMakeFiles/datatask.dir/all:
 	$(MAKE) -f datatask/CMakeFiles/datatask.dir/build.make datatask/CMakeFiles/datatask.dir/depend
 	$(MAKE) -f datatask/CMakeFiles/datatask.dir/build.make datatask/CMakeFiles/datatask.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhangqi/project/dataservice/build/CMakeFiles  1 2 3 4 5 6 7 8 9
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhangqi/project/dataservice/build/CMakeFiles  1 2 3 4 5 6 7 8 9 10
 	@echo "Built target datatask"
 .PHONY : datatask/CMakeFiles/datatask.dir/all
 
@@ -87,7 +87,7 @@ all: datatask/CMakeFiles/datatask.dir/all
 
 # Build rule for subdir invocation for target.
 datatask/CMakeFiles/datatask.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhangqi/project/dataservice/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhangqi/project/dataservice/build/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 datatask/CMakeFiles/datatask.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhangqi/project/dataservice/build/CMakeFiles 0
 .PHONY : datatask/CMakeFiles/datatask.dir/rule
@@ -127,7 +127,7 @@ proxyserver/preinstall:
 proxyserver/CMakeFiles/proxyserver.dir/all:
 	$(MAKE) -f proxyserver/CMakeFiles/proxyserver.dir/build.make proxyserver/CMakeFiles/proxyserver.dir/depend
 	$(MAKE) -f proxyserver/CMakeFiles/proxyserver.dir/build.make proxyserver/CMakeFiles/proxyserver.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhangqi/project/dataservice/build/CMakeFiles  10 11 12 13 14 15 16 17 18 19
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhangqi/project/dataservice/build/CMakeFiles  11 12 13 14 15 16 17 18 19 20 21
 	@echo "Built target proxyserver"
 .PHONY : proxyserver/CMakeFiles/proxyserver.dir/all
 
@@ -137,7 +137,7 @@ all: proxyserver/CMakeFiles/proxyserver.dir/all
 
 # Build rule for subdir invocation for target.
 proxyserver/CMakeFiles/proxyserver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhangqi/project/dataservice/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhangqi/project/dataservice/build/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 proxyserver/CMakeFiles/proxyserver.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhangqi/project/dataservice/build/CMakeFiles 0
 .PHONY : proxyserver/CMakeFiles/proxyserver.dir/rule

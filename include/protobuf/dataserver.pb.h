@@ -36,6 +36,8 @@ void protobuf_ShutdownFile_dataserver_2eproto();
 
 class UserStockCfg;
 class SetUsrStkCfg;
+class SingleUserStkCfg;
+class IncrUsrStkCfg;
 class GetUsrStkCfg;
 class GetIncrStkCfg;
 class UidDevices;
@@ -348,6 +350,206 @@ class SetUsrStkCfg : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static SetUsrStkCfg* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SingleUserStkCfg : public ::google::protobuf::Message {
+ public:
+  SingleUserStkCfg();
+  virtual ~SingleUserStkCfg();
+
+  SingleUserStkCfg(const SingleUserStkCfg& from);
+
+  inline SingleUserStkCfg& operator=(const SingleUserStkCfg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SingleUserStkCfg& default_instance();
+
+  void Swap(SingleUserStkCfg* other);
+
+  // implements Message ----------------------------------------------
+
+  SingleUserStkCfg* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SingleUserStkCfg& from);
+  void MergeFrom(const SingleUserStkCfg& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string usrid = 1;
+  inline bool has_usrid() const;
+  inline void clear_usrid();
+  static const int kUsridFieldNumber = 1;
+  inline const ::std::string& usrid() const;
+  inline void set_usrid(const ::std::string& value);
+  inline void set_usrid(const char* value);
+  inline void set_usrid(const char* value, size_t size);
+  inline ::std::string* mutable_usrid();
+  inline ::std::string* release_usrid();
+  inline void set_allocated_usrid(::std::string* usrid);
+
+  // repeated .dataserver.UserStockCfg stkcfg = 2;
+  inline int stkcfg_size() const;
+  inline void clear_stkcfg();
+  static const int kStkcfgFieldNumber = 2;
+  inline const ::dataserver::UserStockCfg& stkcfg(int index) const;
+  inline ::dataserver::UserStockCfg* mutable_stkcfg(int index);
+  inline ::dataserver::UserStockCfg* add_stkcfg();
+  inline const ::google::protobuf::RepeatedPtrField< ::dataserver::UserStockCfg >&
+      stkcfg() const;
+  inline ::google::protobuf::RepeatedPtrField< ::dataserver::UserStockCfg >*
+      mutable_stkcfg();
+
+  // @@protoc_insertion_point(class_scope:dataserver.SingleUserStkCfg)
+ private:
+  inline void set_has_usrid();
+  inline void clear_has_usrid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* usrid_;
+  ::google::protobuf::RepeatedPtrField< ::dataserver::UserStockCfg > stkcfg_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_dataserver_2eproto();
+  friend void protobuf_AssignDesc_dataserver_2eproto();
+  friend void protobuf_ShutdownFile_dataserver_2eproto();
+
+  void InitAsDefaultInstance();
+  static SingleUserStkCfg* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class IncrUsrStkCfg : public ::google::protobuf::Message {
+ public:
+  IncrUsrStkCfg();
+  virtual ~IncrUsrStkCfg();
+
+  IncrUsrStkCfg(const IncrUsrStkCfg& from);
+
+  inline IncrUsrStkCfg& operator=(const IncrUsrStkCfg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const IncrUsrStkCfg& default_instance();
+
+  void Swap(IncrUsrStkCfg* other);
+
+  // implements Message ----------------------------------------------
+
+  IncrUsrStkCfg* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const IncrUsrStkCfg& from);
+  void MergeFrom(const IncrUsrStkCfg& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string taskid = 1;
+  inline bool has_taskid() const;
+  inline void clear_taskid();
+  static const int kTaskidFieldNumber = 1;
+  inline const ::std::string& taskid() const;
+  inline void set_taskid(const ::std::string& value);
+  inline void set_taskid(const char* value);
+  inline void set_taskid(const char* value, size_t size);
+  inline ::std::string* mutable_taskid();
+  inline ::std::string* release_taskid();
+  inline void set_allocated_taskid(::std::string* taskid);
+
+  // repeated .dataserver.SingleUserStkCfg items = 2;
+  inline int items_size() const;
+  inline void clear_items();
+  static const int kItemsFieldNumber = 2;
+  inline const ::dataserver::SingleUserStkCfg& items(int index) const;
+  inline ::dataserver::SingleUserStkCfg* mutable_items(int index);
+  inline ::dataserver::SingleUserStkCfg* add_items();
+  inline const ::google::protobuf::RepeatedPtrField< ::dataserver::SingleUserStkCfg >&
+      items() const;
+  inline ::google::protobuf::RepeatedPtrField< ::dataserver::SingleUserStkCfg >*
+      mutable_items();
+
+  // @@protoc_insertion_point(class_scope:dataserver.IncrUsrStkCfg)
+ private:
+  inline void set_has_taskid();
+  inline void clear_has_taskid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* taskid_;
+  ::google::protobuf::RepeatedPtrField< ::dataserver::SingleUserStkCfg > items_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_dataserver_2eproto();
+  friend void protobuf_AssignDesc_dataserver_2eproto();
+  friend void protobuf_ShutdownFile_dataserver_2eproto();
+
+  void InitAsDefaultInstance();
+  static IncrUsrStkCfg* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1675,6 +1877,204 @@ SetUsrStkCfg::stkcfg() const {
 inline ::google::protobuf::RepeatedPtrField< ::dataserver::UserStockCfg >*
 SetUsrStkCfg::mutable_stkcfg() {
   return &stkcfg_;
+}
+
+// -------------------------------------------------------------------
+
+// SingleUserStkCfg
+
+// required string usrid = 1;
+inline bool SingleUserStkCfg::has_usrid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SingleUserStkCfg::set_has_usrid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SingleUserStkCfg::clear_has_usrid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SingleUserStkCfg::clear_usrid() {
+  if (usrid_ != &::google::protobuf::internal::kEmptyString) {
+    usrid_->clear();
+  }
+  clear_has_usrid();
+}
+inline const ::std::string& SingleUserStkCfg::usrid() const {
+  return *usrid_;
+}
+inline void SingleUserStkCfg::set_usrid(const ::std::string& value) {
+  set_has_usrid();
+  if (usrid_ == &::google::protobuf::internal::kEmptyString) {
+    usrid_ = new ::std::string;
+  }
+  usrid_->assign(value);
+}
+inline void SingleUserStkCfg::set_usrid(const char* value) {
+  set_has_usrid();
+  if (usrid_ == &::google::protobuf::internal::kEmptyString) {
+    usrid_ = new ::std::string;
+  }
+  usrid_->assign(value);
+}
+inline void SingleUserStkCfg::set_usrid(const char* value, size_t size) {
+  set_has_usrid();
+  if (usrid_ == &::google::protobuf::internal::kEmptyString) {
+    usrid_ = new ::std::string;
+  }
+  usrid_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* SingleUserStkCfg::mutable_usrid() {
+  set_has_usrid();
+  if (usrid_ == &::google::protobuf::internal::kEmptyString) {
+    usrid_ = new ::std::string;
+  }
+  return usrid_;
+}
+inline ::std::string* SingleUserStkCfg::release_usrid() {
+  clear_has_usrid();
+  if (usrid_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = usrid_;
+    usrid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void SingleUserStkCfg::set_allocated_usrid(::std::string* usrid) {
+  if (usrid_ != &::google::protobuf::internal::kEmptyString) {
+    delete usrid_;
+  }
+  if (usrid) {
+    set_has_usrid();
+    usrid_ = usrid;
+  } else {
+    clear_has_usrid();
+    usrid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// repeated .dataserver.UserStockCfg stkcfg = 2;
+inline int SingleUserStkCfg::stkcfg_size() const {
+  return stkcfg_.size();
+}
+inline void SingleUserStkCfg::clear_stkcfg() {
+  stkcfg_.Clear();
+}
+inline const ::dataserver::UserStockCfg& SingleUserStkCfg::stkcfg(int index) const {
+  return stkcfg_.Get(index);
+}
+inline ::dataserver::UserStockCfg* SingleUserStkCfg::mutable_stkcfg(int index) {
+  return stkcfg_.Mutable(index);
+}
+inline ::dataserver::UserStockCfg* SingleUserStkCfg::add_stkcfg() {
+  return stkcfg_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::dataserver::UserStockCfg >&
+SingleUserStkCfg::stkcfg() const {
+  return stkcfg_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::dataserver::UserStockCfg >*
+SingleUserStkCfg::mutable_stkcfg() {
+  return &stkcfg_;
+}
+
+// -------------------------------------------------------------------
+
+// IncrUsrStkCfg
+
+// required string taskid = 1;
+inline bool IncrUsrStkCfg::has_taskid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void IncrUsrStkCfg::set_has_taskid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void IncrUsrStkCfg::clear_has_taskid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void IncrUsrStkCfg::clear_taskid() {
+  if (taskid_ != &::google::protobuf::internal::kEmptyString) {
+    taskid_->clear();
+  }
+  clear_has_taskid();
+}
+inline const ::std::string& IncrUsrStkCfg::taskid() const {
+  return *taskid_;
+}
+inline void IncrUsrStkCfg::set_taskid(const ::std::string& value) {
+  set_has_taskid();
+  if (taskid_ == &::google::protobuf::internal::kEmptyString) {
+    taskid_ = new ::std::string;
+  }
+  taskid_->assign(value);
+}
+inline void IncrUsrStkCfg::set_taskid(const char* value) {
+  set_has_taskid();
+  if (taskid_ == &::google::protobuf::internal::kEmptyString) {
+    taskid_ = new ::std::string;
+  }
+  taskid_->assign(value);
+}
+inline void IncrUsrStkCfg::set_taskid(const char* value, size_t size) {
+  set_has_taskid();
+  if (taskid_ == &::google::protobuf::internal::kEmptyString) {
+    taskid_ = new ::std::string;
+  }
+  taskid_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* IncrUsrStkCfg::mutable_taskid() {
+  set_has_taskid();
+  if (taskid_ == &::google::protobuf::internal::kEmptyString) {
+    taskid_ = new ::std::string;
+  }
+  return taskid_;
+}
+inline ::std::string* IncrUsrStkCfg::release_taskid() {
+  clear_has_taskid();
+  if (taskid_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = taskid_;
+    taskid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void IncrUsrStkCfg::set_allocated_taskid(::std::string* taskid) {
+  if (taskid_ != &::google::protobuf::internal::kEmptyString) {
+    delete taskid_;
+  }
+  if (taskid) {
+    set_has_taskid();
+    taskid_ = taskid;
+  } else {
+    clear_has_taskid();
+    taskid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// repeated .dataserver.SingleUserStkCfg items = 2;
+inline int IncrUsrStkCfg::items_size() const {
+  return items_.size();
+}
+inline void IncrUsrStkCfg::clear_items() {
+  items_.Clear();
+}
+inline const ::dataserver::SingleUserStkCfg& IncrUsrStkCfg::items(int index) const {
+  return items_.Get(index);
+}
+inline ::dataserver::SingleUserStkCfg* IncrUsrStkCfg::mutable_items(int index) {
+  return items_.Mutable(index);
+}
+inline ::dataserver::SingleUserStkCfg* IncrUsrStkCfg::add_items() {
+  return items_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::dataserver::SingleUserStkCfg >&
+IncrUsrStkCfg::items() const {
+  return items_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::dataserver::SingleUserStkCfg >*
+IncrUsrStkCfg::mutable_items() {
+  return &items_;
 }
 
 // -------------------------------------------------------------------
