@@ -160,7 +160,7 @@ void stringReplace(std::string& orc,std::string src,std::string des)
 	std::string::size_type srclen = src.size();
 	std::string::size_type deslen = des.size();
 	pos = orc.find(src,pos);
-	while((pos != string::npos))
+	while((pos != std::string::npos))
 	{
 		orc.replace(pos,srclen,des);
 	    pos = orc.find(src,(pos+deslen));
