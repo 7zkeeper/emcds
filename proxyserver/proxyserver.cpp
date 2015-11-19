@@ -19,6 +19,7 @@
 
 #define PROXYSERVER 	"proxyserver"
 #define LOGFILE			"serverlog.properties"
+
 using namespace log4cxx;
 using namespace log4cxx::helpers;
 using namespace boost::property_tree;
@@ -33,12 +34,22 @@ ProxyServer::ProxyServer(EventLoop* loop,const InetAddress& listenAddr,	const In
 {
 	m_dispatcher.registerMessageCallback<dataserver::GetIncrStkCfg>(
 		boost::bind(&ProxyServer::onGetIncrusrstk,this,_1,_2,_3));
+
+	m_dispatcher.registerMessageCallback<dataserver::SetUsrStkCfg>(
+		boost::bind(&ProxyServer::onSetusrstk,this,_1,_2,_3)); 
+
+	m_dispatcher.registerMessageCallback<dataserver::SetSingleUsrStkCfg>(
+		boost::bind(&ProxyServer::onSetsingleusrstk,this,_1,_2,_3));
+	
 	m_server.setConnectionCallback(
 		boost::bind(&ProxyServer::onClientConnection,this,_1));
+
 	m_server.setMessageCallback(
 		boost::bind(&ProtobufCodec::onMessage,&m_codec,_1,_2,_3));
+
 	m_redis.setConnectCallback(
 		boost::bind(&ProxyServer::onRedisConnection,this,_1,_2));
+
 	m_redis.setDisconnectCallback(
 		boost::bind(&ProxyServer::onRedisDisconnection,this,_1,_2));
 }
@@ -176,9 +187,9 @@ void ProxyServer::onRedisGetResult(hiredis::Hiredis* c,redisReply* reply)
 
 	std::string ret;
 	std::string task(reply->element[1]->str,reply->element[1]->len);
-
 	std::stringstream stream;
-    stream<<task;
+
+	stream<<task;
     std::string type;
     ptree pt;
 	read_json<ptree>(stream,pt);
@@ -269,36 +280,36 @@ void ProxyServer::onSetusrstk(const TcpConnectionPtr& conn,	const SetusrstkPtr& 
 	LOG4CXX_INFO(log4cxx::Logger::getLogger(PROXYSERVER),"recv SetUsrStk!");
 	LOG_INFO << "onSetUsrstk protobuf received...";
 	LOG_INFO << message->DebugString() ;
-
+	std::string taskid = message->taskid();
 	std::string pushdata =  pb2json(*message);
 	stringReplace(pushdata," ","");
-/*
-	std::string push = "{";
-	std::string taskid = message->taskid();
-	std::string userid = message->usrid();
-	push += (TASK_TYPE + std::string(":") + taskid); 
-	push += (std::string(",") + USERSTOCK_UID + std::string(":") + userid);
-	int stk_num = message->stkcfg_size();
-	push += (USERSTOCK_STOCKS + std::string(":["));
-	for(int index=0; index<stk_num; index++)
-	{
-		push += std::string("{");
-
-		push += std::string("}");
-	}	
-	push += std::string("]");
-*/
-//	int id = boost::lexical_cast<int>(message->incrementid());
-//	int count = boost::lexical_cast<int>(message->count());
-//	char sztask[512];
-//	sprintf(sztask,"%s:%d;%s:%s;%s:%d;%s:%d",TASK_TYPE,SET_USER_STOCK,TASK_ID,taskid.c_str(),MOBILE_INCR,id,QUERY_COUNT,count);
-//	LOG_INFO << "taskid " <<taskid << " id " << id;
+	char szconn[128] = {0};
+	sprintf(szconn,"\"conn\":\"%s\",\"%s\":\"%d\",",conn->name().c_str(),TASK_TYPE,SET_USER_STOCK);
+	pushdata.insert(1,szconn);
 
 	m_redis.command(boost::bind(&ProxyServer::onPushTask,this,_1,_2),
 					"lpush %s %s",m_redis.getPushTitle().c_str(),pushdata.c_str());
-//	m_taskconns[taskid] = std::string(conn->name().c_str());
+	m_taskconns[taskid] = std::string(conn->name().c_str());
 
 } 
+
+void ProxyServer::onSetsingleusrstk(const TcpConnectionPtr& conn,const  SetsingleusrstkPtr& message,Timestamp)
+{
+	LOG4CXX_INFO(log4cxx::Logger::getLogger(PROXYSERVER),"recv SetSingleUsrStkCfg!");
+	LOG_INFO << "onSetsingleusrstk protobuf received...";
+	LOG_INFO << message->DebugString() ;
+	std::string taskid = message->taskid();
+	std::string pushdata =  pb2json(*message);
+	stringReplace(pushdata," ","");
+	char szconn[128] = {0};
+	sprintf(szconn,"\"conn\":\"%s\",\"%s\":\"%d\",",conn->name().c_str(),TASK_TYPE,SET_USER_STOCK);
+	pushdata.insert(1,szconn);
+
+	m_redis.command(boost::bind(&ProxyServer::onPushTask,this,_1,_2),
+					"lpush %s %s",m_redis.getPushTitle().c_str(),pushdata.c_str());
+	m_taskconns[taskid] = std::string(conn->name().c_str());
+}
+
 
 void ProxyServer::queue_task(const std::string& task,std::string& result)
 {

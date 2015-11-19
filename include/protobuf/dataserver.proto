@@ -4,8 +4,6 @@
  */
 
 package dataserver;
-//option java_package = "em_codec_dataserver";
-//option java_outer_classname = "em_ds_protos";
 
 enum ResponseCode
 {
@@ -40,6 +38,19 @@ message SetUsrStkCfg
 	required string taskid = 1;
 	required string usrid = 2;
 	repeated UserStockCfg stkcfg = 3;
+}
+
+message SetSingleUsrStkCfg
+{
+	required string taskid = 1;
+	required string usrid = 2;
+	required string stockcode = 3;
+	required int64 bulletin = 4 [default=1];
+	optional float max_price = 5;
+	optional float min_price = 6;
+	optional float range = 7;
+	required int64 run = 8 [default=1]; 
+	required int64 incrementid = 9;
 }
 
 message SingleUserStkCfg

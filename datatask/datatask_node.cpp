@@ -6,11 +6,15 @@
 #include "inifile/inifile.h"
 #include "datatask_node.h"
 #include "utility/mongodb_flag.h"
+#include "mongodb/BSONCreator.h"
 #include <mongo/client/dbclient.h>
 #include <mongo/bson/bson.h>
 #include <boost/lexical_cast.hpp>
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/json_parser.hpp>
 
 using namespace mongo;
+using namespace boost::property_tree;
 
 datatask_node::datatask_node(boost::asio::io_service& ioService,
 				RedisAsyncClient& rd,std::string iniFile)
@@ -66,7 +70,7 @@ void datatask_node::parsepara(std::string redistask,std::string& result)
 	splits(redistask,ret,";");
 	std::string tasktype = "";
 	display(ret);
-	getKeyValue(ret,"tasktype",tasktype);
+	getKeyValue(ret,TASK_TYPE,tasktype);
 	std::cout<<"parsepara: "<< redistask << std::endl;
 	if(tasktype.empty())	
 		return ;
@@ -74,6 +78,75 @@ void datatask_node::parsepara(std::string redistask,std::string& result)
 	std::cout << "typed: "<<type<<std::endl;
 	result.clear();
 	deal_task((task_type)type,ret,result);
+}
+
+void datatask_node::dealSetUserStk(std::string redistask,std::string& result)
+{
+	std::cout << "get setuserstk quest." << std::endl;
+	std::cout << redistask << std::endl;
+
+	bool exist = false;
+	keyvalue ret;
+	splits(redistask,ret,";");
+	std::string user,stockcode;
+	getKeyValue(ret,"userid",user);
+	BSONObj bob = createSetUserStockCfg(user,ret,exist);
+	char dbcoll[255] = {0};
+	sprintf(dbcoll,"%s.%s",DB_NAME,STKCFG_SETS);
+
+	Query query = MONGO_QUERY(USERSTOCK_UID<<user<<USERSTOCK_STOCKS<<BSON("$elemMatch"<<BSON(USERSTOCK_STOCKCODE<<stockcode)));
+	std::string mongo_ret ;
+	m_mongodb.query(dbcoll,query,mongo_ret);
+	if(mongo_ret.size() > 10)
+		exist = true;
+	m_mongodb.setvalue(dbcoll,query,bob,exist);
+/*
+	std::stringstream stream;
+	stream << redistask;
+
+	try
+	{
+		ptree pt,p1,p2;
+		std::string stk,bulletin,maxprice,minprice,run,range,incr;
+		read_json<ptree>(stream,pt);
+		std::string userid = pt.get<std::string>("usrid");
+		p1 = pt.get_child("stkcfg");
+
+		bool exist = false;
+		mongo::BSONObjBuilder c_bob,stock_bob;
+		char k[1024] = {0};
+		if(!exist)
+			sprintf(k,"%s",USERSTOCK_STOCKCODE);
+		else
+			sprintf(k,"%s.$.%s",USERSTOCK_STOCKS,USERSTOCK_STOCKCODE);
+
+		c_bob.append(USERSTOCK_UID,userid);
+
+		for(ptree::iterator it = p1.begin(); it != p1.end(); it++)
+		{
+			p2 = it->second;
+			stk = p2.get<std::string>(USERSTOCK_STOCKCODE);
+			bulletin = p2.get(USERSTOCK_BULLETIN,"1");
+			incr = p2.get<std::string>(USERSTOCK_INCR);
+			maxprice = p2.get(USERSTOCK_MAXPRICE,"-1.0");
+			minprice = p2.get(USERSTOCK_MINPRICE,"-1.0");
+			run = p2.get(USERSTOCK_RUN,"1");
+			range = p2.get(USERSTOCK_RANGE,"-10000");
+			
+			double maxp,minp,drange;
+			maxp = boost::lexical_cast<double>(maxprice);
+			minp = boost::lexical_cast<double>(minprice);
+			drange = boost::lexical_cast<double>(range);
+			if(!exist)
+				stock_bob.append(USERSTOCK_UID,userid.c_str());
+			stock_bob.append(k,stk.c_str());
+		}
+	}
+	catch(ptree_error& e)
+	{
+		std::cout << "error for ptree parse.." << std::endl;
+	}
+*/	
 }
 
 

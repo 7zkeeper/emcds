@@ -26,6 +26,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* SetUsrStkCfg_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SetUsrStkCfg_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SetSingleUsrStkCfg_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SetSingleUsrStkCfg_reflection_ = NULL;
 const ::google::protobuf::Descriptor* SingleUserStkCfg_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SingleUserStkCfg_reflection_ = NULL;
@@ -106,7 +109,30 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SetUsrStkCfg));
-  SingleUserStkCfg_descriptor_ = file->message_type(2);
+  SetSingleUsrStkCfg_descriptor_ = file->message_type(2);
+  static const int SetSingleUsrStkCfg_offsets_[9] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetSingleUsrStkCfg, taskid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetSingleUsrStkCfg, usrid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetSingleUsrStkCfg, stockcode_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetSingleUsrStkCfg, bulletin_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetSingleUsrStkCfg, max_price_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetSingleUsrStkCfg, min_price_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetSingleUsrStkCfg, range_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetSingleUsrStkCfg, run_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetSingleUsrStkCfg, incrementid_),
+  };
+  SetSingleUsrStkCfg_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SetSingleUsrStkCfg_descriptor_,
+      SetSingleUsrStkCfg::default_instance_,
+      SetSingleUsrStkCfg_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetSingleUsrStkCfg, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetSingleUsrStkCfg, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SetSingleUsrStkCfg));
+  SingleUserStkCfg_descriptor_ = file->message_type(3);
   static const int SingleUserStkCfg_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SingleUserStkCfg, usrid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SingleUserStkCfg, stkcfg_),
@@ -122,7 +148,7 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SingleUserStkCfg));
-  IncrUsrStkCfg_descriptor_ = file->message_type(3);
+  IncrUsrStkCfg_descriptor_ = file->message_type(4);
   static const int IncrUsrStkCfg_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IncrUsrStkCfg, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IncrUsrStkCfg, items_),
@@ -138,7 +164,7 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(IncrUsrStkCfg));
-  GetUsrStkCfg_descriptor_ = file->message_type(4);
+  GetUsrStkCfg_descriptor_ = file->message_type(5);
   static const int GetUsrStkCfg_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetUsrStkCfg, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetUsrStkCfg, usrid_),
@@ -155,7 +181,7 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GetUsrStkCfg));
-  GetIncrStkCfg_descriptor_ = file->message_type(5);
+  GetIncrStkCfg_descriptor_ = file->message_type(6);
   static const int GetIncrStkCfg_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetIncrStkCfg, incrementid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetIncrStkCfg, count_),
@@ -172,7 +198,7 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GetIncrStkCfg));
-  UidDevices_descriptor_ = file->message_type(6);
+  UidDevices_descriptor_ = file->message_type(7);
   static const int UidDevices_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UidDevices, osversion_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UidDevices, comment_),
@@ -208,7 +234,7 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(UidDevices_appinfos));
-  SetUidDevices_descriptor_ = file->message_type(7);
+  SetUidDevices_descriptor_ = file->message_type(8);
   static const int SetUidDevices_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetUidDevices, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetUidDevices, device_),
@@ -225,7 +251,7 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SetUidDevices));
-  GetUidDevices_descriptor_ = file->message_type(8);
+  GetUidDevices_descriptor_ = file->message_type(9);
   static const int GetUidDevices_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetUidDevices, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetUidDevices, device_),
@@ -242,7 +268,7 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GetUidDevices));
-  UsrStockRes_descriptor_ = file->message_type(9);
+  UsrStockRes_descriptor_ = file->message_type(10);
   static const int UsrStockRes_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UsrStockRes, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UsrStockRes, response_code_),
@@ -260,7 +286,7 @@ void protobuf_AssignDesc_dataserver_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(UsrStockRes));
-  UidDeviceRes_descriptor_ = file->message_type(10);
+  UidDeviceRes_descriptor_ = file->message_type(11);
   static const int UidDeviceRes_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UidDeviceRes, taskid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UidDeviceRes, reponse_code_),
@@ -297,6 +323,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SetUsrStkCfg_descriptor_, &SetUsrStkCfg::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SetSingleUsrStkCfg_descriptor_, &SetSingleUsrStkCfg::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SingleUserStkCfg_descriptor_, &SingleUserStkCfg::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     IncrUsrStkCfg_descriptor_, &IncrUsrStkCfg::default_instance());
@@ -325,6 +353,8 @@ void protobuf_ShutdownFile_dataserver_2eproto() {
   delete UserStockCfg_reflection_;
   delete SetUsrStkCfg::default_instance_;
   delete SetUsrStkCfg_reflection_;
+  delete SetSingleUsrStkCfg::default_instance_;
+  delete SetSingleUsrStkCfg_reflection_;
   delete SingleUserStkCfg::default_instance_;
   delete SingleUserStkCfg_reflection_;
   delete IncrUsrStkCfg::default_instance_;
@@ -360,40 +390,45 @@ void protobuf_AddDesc_dataserver_2eproto() {
     "\004 \001(\002\022\r\n\005range\030\005 \001(\002\022\016\n\003run\030\006 \002(\003:\0011\022\023\n\013"
     "incrementid\030\007 \002(\003\"W\n\014SetUsrStkCfg\022\016\n\006tas"
     "kid\030\001 \002(\t\022\r\n\005usrid\030\002 \002(\t\022(\n\006stkcfg\030\003 \003(\013"
-    "2\030.dataserver.UserStockCfg\"K\n\020SingleUser"
-    "StkCfg\022\r\n\005usrid\030\001 \002(\t\022(\n\006stkcfg\030\002 \003(\0132\030."
-    "dataserver.UserStockCfg\"L\n\rIncrUsrStkCfg"
-    "\022\016\n\006taskid\030\001 \002(\t\022+\n\005items\030\002 \003(\0132\034.datase"
-    "rver.SingleUserStkCfg\"B\n\014GetUsrStkCfg\022\016\n"
-    "\006taskid\030\001 \002(\t\022\r\n\005usrid\030\002 \002(\t\022\023\n\013incremen"
-    "tid\030\003 \001(\003\"C\n\rGetIncrStkCfg\022\023\n\013incrementi"
-    "d\030\001 \002(\003\022\r\n\005count\030\002 \002(\003\022\016\n\006taskid\030\003 \002(\t\"\336"
-    "\001\n\nUidDevices\022\021\n\tosversion\030\001 \002(\t\022\017\n\007comm"
-    "ent\030\002 \001(\t\022-\n\004apps\030\003 \003(\0132\037.dataserver.Uid"
-    "Devices.appinfos\032}\n\010appinfos\022\017\n\007apptype\030"
-    "\001 \002(\t\022)\n\004flag\030\002 \002(\0162\024.dataserver.flagtyp"
-    "e:\005VALID\022\017\n\007lastuid\030\003 \002(\t\022\020\n\010lasttime\030\004 "
-    "\002(\003\022\022\n\nappversion\030\005 \002(\t\"U\n\rSetUidDevices"
-    "\022\016\n\006taskid\030\001 \002(\t\022\016\n\006device\030\002 \002(\t\022$\n\004data"
-    "\030\003 \003(\0132\026.dataserver.UidDevices\"D\n\rGetUid"
-    "Devices\022\016\n\006taskid\030\001 \002(\t\022\016\n\006device\030\002 \002(\t\022"
-    "\023\n\013incrementid\030\003 \001(\003\"\205\001\n\013UsrStockRes\022\016\n\006"
-    "taskid\030\001 \002(\t\022/\n\rresponse_code\030\002 \002(\0162\030.da"
-    "taserver.ResponseCode\022\r\n\005usrid\030\003 \001(\t\022&\n\004"
-    "data\030\004 \003(\0132\030.dataserver.UserStockCfg\"\204\001\n"
-    "\014UidDeviceRes\022\016\n\006taskid\030\001 \002(\t\022.\n\014reponse"
-    "_code\030\002 \002(\0162\030.dataserver.ResponseCode\022\016\n"
-    "\006device\030\003 \001(\t\022$\n\004data\030\004 \003(\0132\026.dataserver"
-    ".UidDevices*\221\001\n\014ResponseCode\022\006\n\002OK\020\000\022\025\n\010"
-    "NOT_FIND\020\377\377\377\377\377\377\377\377\377\001\022\025\n\010TIME_OUT\020\376\377\377\377\377\377\377\377"
-    "\377\001\022\034\n\017SERVER_INTERNAL\020\375\377\377\377\377\377\377\377\377\001\022\027\n\nEXIS"
-    "T_TASK\020\374\377\377\377\377\377\377\377\377\001\022\024\n\007UNKNOWN\020\230\370\377\377\377\377\377\377\377\001*"
-    "+\n\010flagtype\022\t\n\005VALID\020\001\022\024\n\007INVALID\020\377\377\377\377\377\377"
-    "\377\377\377\001", 1404);
+    "2\030.dataserver.UserStockCfg\"\265\001\n\022SetSingle"
+    "UsrStkCfg\022\016\n\006taskid\030\001 \002(\t\022\r\n\005usrid\030\002 \002(\t"
+    "\022\021\n\tstockcode\030\003 \002(\t\022\023\n\010bulletin\030\004 \002(\003:\0011"
+    "\022\021\n\tmax_price\030\005 \001(\002\022\021\n\tmin_price\030\006 \001(\002\022\r"
+    "\n\005range\030\007 \001(\002\022\016\n\003run\030\010 \002(\003:\0011\022\023\n\013increme"
+    "ntid\030\t \002(\003\"K\n\020SingleUserStkCfg\022\r\n\005usrid\030"
+    "\001 \002(\t\022(\n\006stkcfg\030\002 \003(\0132\030.dataserver.UserS"
+    "tockCfg\"L\n\rIncrUsrStkCfg\022\016\n\006taskid\030\001 \002(\t"
+    "\022+\n\005items\030\002 \003(\0132\034.dataserver.SingleUserS"
+    "tkCfg\"B\n\014GetUsrStkCfg\022\016\n\006taskid\030\001 \002(\t\022\r\n"
+    "\005usrid\030\002 \002(\t\022\023\n\013incrementid\030\003 \001(\003\"G\n\rGet"
+    "IncrStkCfg\022\023\n\013incrementid\030\001 \002(\003\022\021\n\005count"
+    "\030\002 \002(\003:\00210\022\016\n\006taskid\030\003 \002(\t\"\336\001\n\nUidDevice"
+    "s\022\021\n\tosversion\030\001 \002(\t\022\017\n\007comment\030\002 \001(\t\022-\n"
+    "\004apps\030\003 \003(\0132\037.dataserver.UidDevices.appi"
+    "nfos\032}\n\010appinfos\022\017\n\007apptype\030\001 \002(\t\022)\n\004fla"
+    "g\030\002 \002(\0162\024.dataserver.flagtype:\005VALID\022\017\n\007"
+    "lastuid\030\003 \002(\t\022\020\n\010lasttime\030\004 \002(\003\022\022\n\nappve"
+    "rsion\030\005 \002(\t\"U\n\rSetUidDevices\022\016\n\006taskid\030\001"
+    " \002(\t\022\016\n\006device\030\002 \002(\t\022$\n\004data\030\003 \003(\0132\026.dat"
+    "aserver.UidDevices\"D\n\rGetUidDevices\022\016\n\006t"
+    "askid\030\001 \002(\t\022\016\n\006device\030\002 \002(\t\022\023\n\013increment"
+    "id\030\003 \001(\003\"\205\001\n\013UsrStockRes\022\016\n\006taskid\030\001 \002(\t"
+    "\022/\n\rresponse_code\030\002 \002(\0162\030.dataserver.Res"
+    "ponseCode\022\r\n\005usrid\030\003 \001(\t\022&\n\004data\030\004 \003(\0132\030"
+    ".dataserver.UserStockCfg\"\204\001\n\014UidDeviceRe"
+    "s\022\016\n\006taskid\030\001 \002(\t\022.\n\014reponse_code\030\002 \002(\0162"
+    "\030.dataserver.ResponseCode\022\016\n\006device\030\003 \001("
+    "\t\022$\n\004data\030\004 \003(\0132\026.dataserver.UidDevices*"
+    "\221\001\n\014ResponseCode\022\006\n\002OK\020\000\022\025\n\010NOT_FIND\020\377\377\377"
+    "\377\377\377\377\377\377\001\022\025\n\010TIME_OUT\020\376\377\377\377\377\377\377\377\377\001\022\034\n\017SERVER"
+    "_INTERNAL\020\375\377\377\377\377\377\377\377\377\001\022\027\n\nEXIST_TASK\020\374\377\377\377\377"
+    "\377\377\377\377\001\022\024\n\007UNKNOWN\020\230\370\377\377\377\377\377\377\377\001*+\n\010flagtype\022"
+    "\t\n\005VALID\020\001\022\024\n\007INVALID\020\377\377\377\377\377\377\377\377\377\001", 1592);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "dataserver.proto", &protobuf_RegisterTypes);
   UserStockCfg::default_instance_ = new UserStockCfg();
   SetUsrStkCfg::default_instance_ = new SetUsrStkCfg();
+  SetSingleUsrStkCfg::default_instance_ = new SetSingleUsrStkCfg();
   SingleUserStkCfg::default_instance_ = new SingleUserStkCfg();
   IncrUsrStkCfg::default_instance_ = new IncrUsrStkCfg();
   GetUsrStkCfg::default_instance_ = new GetUsrStkCfg();
@@ -406,6 +441,7 @@ void protobuf_AddDesc_dataserver_2eproto() {
   UidDeviceRes::default_instance_ = new UidDeviceRes();
   UserStockCfg::default_instance_->InitAsDefaultInstance();
   SetUsrStkCfg::default_instance_->InitAsDefaultInstance();
+  SetSingleUsrStkCfg::default_instance_->InitAsDefaultInstance();
   SingleUserStkCfg::default_instance_->InitAsDefaultInstance();
   IncrUsrStkCfg::default_instance_->InitAsDefaultInstance();
   GetUsrStkCfg::default_instance_->InitAsDefaultInstance();
@@ -1240,6 +1276,586 @@ void SetUsrStkCfg::Swap(SetUsrStkCfg* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = SetUsrStkCfg_descriptor_;
   metadata.reflection = SetUsrStkCfg_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SetSingleUsrStkCfg::kTaskidFieldNumber;
+const int SetSingleUsrStkCfg::kUsridFieldNumber;
+const int SetSingleUsrStkCfg::kStockcodeFieldNumber;
+const int SetSingleUsrStkCfg::kBulletinFieldNumber;
+const int SetSingleUsrStkCfg::kMaxPriceFieldNumber;
+const int SetSingleUsrStkCfg::kMinPriceFieldNumber;
+const int SetSingleUsrStkCfg::kRangeFieldNumber;
+const int SetSingleUsrStkCfg::kRunFieldNumber;
+const int SetSingleUsrStkCfg::kIncrementidFieldNumber;
+#endif  // !_MSC_VER
+
+SetSingleUsrStkCfg::SetSingleUsrStkCfg()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SetSingleUsrStkCfg::InitAsDefaultInstance() {
+}
+
+SetSingleUsrStkCfg::SetSingleUsrStkCfg(const SetSingleUsrStkCfg& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SetSingleUsrStkCfg::SharedCtor() {
+  _cached_size_ = 0;
+  taskid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  usrid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  stockcode_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  bulletin_ = GOOGLE_LONGLONG(1);
+  max_price_ = 0;
+  min_price_ = 0;
+  range_ = 0;
+  run_ = GOOGLE_LONGLONG(1);
+  incrementid_ = GOOGLE_LONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SetSingleUsrStkCfg::~SetSingleUsrStkCfg() {
+  SharedDtor();
+}
+
+void SetSingleUsrStkCfg::SharedDtor() {
+  if (taskid_ != &::google::protobuf::internal::kEmptyString) {
+    delete taskid_;
+  }
+  if (usrid_ != &::google::protobuf::internal::kEmptyString) {
+    delete usrid_;
+  }
+  if (stockcode_ != &::google::protobuf::internal::kEmptyString) {
+    delete stockcode_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void SetSingleUsrStkCfg::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SetSingleUsrStkCfg::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SetSingleUsrStkCfg_descriptor_;
+}
+
+const SetSingleUsrStkCfg& SetSingleUsrStkCfg::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_dataserver_2eproto();
+  return *default_instance_;
+}
+
+SetSingleUsrStkCfg* SetSingleUsrStkCfg::default_instance_ = NULL;
+
+SetSingleUsrStkCfg* SetSingleUsrStkCfg::New() const {
+  return new SetSingleUsrStkCfg;
+}
+
+void SetSingleUsrStkCfg::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_taskid()) {
+      if (taskid_ != &::google::protobuf::internal::kEmptyString) {
+        taskid_->clear();
+      }
+    }
+    if (has_usrid()) {
+      if (usrid_ != &::google::protobuf::internal::kEmptyString) {
+        usrid_->clear();
+      }
+    }
+    if (has_stockcode()) {
+      if (stockcode_ != &::google::protobuf::internal::kEmptyString) {
+        stockcode_->clear();
+      }
+    }
+    bulletin_ = GOOGLE_LONGLONG(1);
+    max_price_ = 0;
+    min_price_ = 0;
+    range_ = 0;
+    run_ = GOOGLE_LONGLONG(1);
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    incrementid_ = GOOGLE_LONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SetSingleUsrStkCfg::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string taskid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_taskid()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->taskid().data(), this->taskid().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_usrid;
+        break;
+      }
+
+      // required string usrid = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_usrid:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_usrid()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->usrid().data(), this->usrid().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_stockcode;
+        break;
+      }
+
+      // required string stockcode = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_stockcode:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_stockcode()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->stockcode().data(), this->stockcode().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_bulletin;
+        break;
+      }
+
+      // required int64 bulletin = 4 [default = 1];
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_bulletin:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &bulletin_)));
+          set_has_bulletin();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(45)) goto parse_max_price;
+        break;
+      }
+
+      // optional float max_price = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
+         parse_max_price:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &max_price_)));
+          set_has_max_price();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(53)) goto parse_min_price;
+        break;
+      }
+
+      // optional float min_price = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
+         parse_min_price:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &min_price_)));
+          set_has_min_price();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(61)) goto parse_range;
+        break;
+      }
+
+      // optional float range = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_FIXED32) {
+         parse_range:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &range_)));
+          set_has_range();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(64)) goto parse_run;
+        break;
+      }
+
+      // required int64 run = 8 [default = 1];
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_run:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &run_)));
+          set_has_run();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(72)) goto parse_incrementid;
+        break;
+      }
+
+      // required int64 incrementid = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_incrementid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &incrementid_)));
+          set_has_incrementid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SetSingleUsrStkCfg::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required string taskid = 1;
+  if (has_taskid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->taskid().data(), this->taskid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->taskid(), output);
+  }
+
+  // required string usrid = 2;
+  if (has_usrid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->usrid().data(), this->usrid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->usrid(), output);
+  }
+
+  // required string stockcode = 3;
+  if (has_stockcode()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->stockcode().data(), this->stockcode().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->stockcode(), output);
+  }
+
+  // required int64 bulletin = 4 [default = 1];
+  if (has_bulletin()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->bulletin(), output);
+  }
+
+  // optional float max_price = 5;
+  if (has_max_price()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->max_price(), output);
+  }
+
+  // optional float min_price = 6;
+  if (has_min_price()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->min_price(), output);
+  }
+
+  // optional float range = 7;
+  if (has_range()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->range(), output);
+  }
+
+  // required int64 run = 8 [default = 1];
+  if (has_run()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->run(), output);
+  }
+
+  // required int64 incrementid = 9;
+  if (has_incrementid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->incrementid(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SetSingleUsrStkCfg::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string taskid = 1;
+  if (has_taskid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->taskid().data(), this->taskid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->taskid(), target);
+  }
+
+  // required string usrid = 2;
+  if (has_usrid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->usrid().data(), this->usrid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->usrid(), target);
+  }
+
+  // required string stockcode = 3;
+  if (has_stockcode()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->stockcode().data(), this->stockcode().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->stockcode(), target);
+  }
+
+  // required int64 bulletin = 4 [default = 1];
+  if (has_bulletin()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->bulletin(), target);
+  }
+
+  // optional float max_price = 5;
+  if (has_max_price()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->max_price(), target);
+  }
+
+  // optional float min_price = 6;
+  if (has_min_price()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->min_price(), target);
+  }
+
+  // optional float range = 7;
+  if (has_range()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->range(), target);
+  }
+
+  // required int64 run = 8 [default = 1];
+  if (has_run()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->run(), target);
+  }
+
+  // required int64 incrementid = 9;
+  if (has_incrementid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->incrementid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SetSingleUsrStkCfg::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string taskid = 1;
+    if (has_taskid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->taskid());
+    }
+
+    // required string usrid = 2;
+    if (has_usrid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->usrid());
+    }
+
+    // required string stockcode = 3;
+    if (has_stockcode()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->stockcode());
+    }
+
+    // required int64 bulletin = 4 [default = 1];
+    if (has_bulletin()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->bulletin());
+    }
+
+    // optional float max_price = 5;
+    if (has_max_price()) {
+      total_size += 1 + 4;
+    }
+
+    // optional float min_price = 6;
+    if (has_min_price()) {
+      total_size += 1 + 4;
+    }
+
+    // optional float range = 7;
+    if (has_range()) {
+      total_size += 1 + 4;
+    }
+
+    // required int64 run = 8 [default = 1];
+    if (has_run()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->run());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // required int64 incrementid = 9;
+    if (has_incrementid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->incrementid());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SetSingleUsrStkCfg::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SetSingleUsrStkCfg* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SetSingleUsrStkCfg*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SetSingleUsrStkCfg::MergeFrom(const SetSingleUsrStkCfg& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_taskid()) {
+      set_taskid(from.taskid());
+    }
+    if (from.has_usrid()) {
+      set_usrid(from.usrid());
+    }
+    if (from.has_stockcode()) {
+      set_stockcode(from.stockcode());
+    }
+    if (from.has_bulletin()) {
+      set_bulletin(from.bulletin());
+    }
+    if (from.has_max_price()) {
+      set_max_price(from.max_price());
+    }
+    if (from.has_min_price()) {
+      set_min_price(from.min_price());
+    }
+    if (from.has_range()) {
+      set_range(from.range());
+    }
+    if (from.has_run()) {
+      set_run(from.run());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_incrementid()) {
+      set_incrementid(from.incrementid());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SetSingleUsrStkCfg::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SetSingleUsrStkCfg::CopyFrom(const SetSingleUsrStkCfg& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SetSingleUsrStkCfg::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000018f) != 0x0000018f) return false;
+
+  return true;
+}
+
+void SetSingleUsrStkCfg::Swap(SetSingleUsrStkCfg* other) {
+  if (other != this) {
+    std::swap(taskid_, other->taskid_);
+    std::swap(usrid_, other->usrid_);
+    std::swap(stockcode_, other->stockcode_);
+    std::swap(bulletin_, other->bulletin_);
+    std::swap(max_price_, other->max_price_);
+    std::swap(min_price_, other->min_price_);
+    std::swap(range_, other->range_);
+    std::swap(run_, other->run_);
+    std::swap(incrementid_, other->incrementid_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SetSingleUsrStkCfg::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SetSingleUsrStkCfg_descriptor_;
+  metadata.reflection = SetSingleUsrStkCfg_reflection_;
   return metadata;
 }
 
@@ -2130,7 +2746,7 @@ GetIncrStkCfg::GetIncrStkCfg(const GetIncrStkCfg& from)
 void GetIncrStkCfg::SharedCtor() {
   _cached_size_ = 0;
   incrementid_ = GOOGLE_LONGLONG(0);
-  count_ = GOOGLE_LONGLONG(0);
+  count_ = GOOGLE_LONGLONG(10);
   taskid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -2171,7 +2787,7 @@ GetIncrStkCfg* GetIncrStkCfg::New() const {
 void GetIncrStkCfg::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     incrementid_ = GOOGLE_LONGLONG(0);
-    count_ = GOOGLE_LONGLONG(0);
+    count_ = GOOGLE_LONGLONG(10);
     if (has_taskid()) {
       if (taskid_ != &::google::protobuf::internal::kEmptyString) {
         taskid_->clear();
@@ -2203,7 +2819,7 @@ bool GetIncrStkCfg::MergePartialFromCodedStream(
         break;
       }
 
-      // required int64 count = 2;
+      // required int64 count = 2 [default = 10];
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -2259,7 +2875,7 @@ void GetIncrStkCfg::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->incrementid(), output);
   }
 
-  // required int64 count = 2;
+  // required int64 count = 2 [default = 10];
   if (has_count()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->count(), output);
   }
@@ -2286,7 +2902,7 @@ void GetIncrStkCfg::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->incrementid(), target);
   }
 
-  // required int64 count = 2;
+  // required int64 count = 2 [default = 10];
   if (has_count()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->count(), target);
   }
@@ -2319,7 +2935,7 @@ int GetIncrStkCfg::ByteSize() const {
           this->incrementid());
     }
 
-    // required int64 count = 2;
+    // required int64 count = 2 [default = 10];
     if (has_count()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(

@@ -33,6 +33,7 @@ datatask/CMakeFiles/datatask.dir/__/include/zookeeper/ksm_zk.cpp.o
  /home/zhangqi/project/dataservice/include/zookeeper/ksm_zk.h
 datatask/CMakeFiles/datatask.dir/datatask_node.cpp.o
  ../datatask/../include/inifile/inifile.h
+ ../datatask/../include/mongodb/BSONCreator.h
  ../datatask/../include/mongodb/em_mongodb.h
  ../datatask/../include/redis/redisworker.h
  ../datatask/../include/utility/mongodb_flag.h

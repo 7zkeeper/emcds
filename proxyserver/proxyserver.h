@@ -22,6 +22,8 @@
 using namespace muduo;
 using namespace muduo::net;
 
+typedef boost::shared_ptr<dataserver::SetSingleUsrStkCfg> SetsingleusrstkPtr;
+
 typedef boost::shared_ptr<dataserver::SetUsrStkCfg> SetusrstkPtr;
 
 typedef boost::shared_ptr<dataserver::GetUsrStkCfg> GetusrstkPtr;
@@ -70,6 +72,8 @@ private:
 
 	void onUnknownMessage(const TcpConnectionPtr& conn,const MessagePtr& message,Timestamp); 
 
+	void onSetsingleusrstk(const TcpConnectionPtr& conn,const  SetsingleusrstkPtr& message,Timestamp); 
+	
 	void onSetusrstk(const TcpConnectionPtr& conn,const SetusrstkPtr& message,Timestamp); 
 
 	void onGetusrstk(const TcpConnectionPtr& conn,const GetusrstkPtr& message,Timestamp);

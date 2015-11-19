@@ -1,3 +1,7 @@
+
+#ifndef _UTILITY_H_
+#define _UTILITY_H_
+
 #include <vector>
 #include <string>
 
@@ -47,3 +51,5 @@ void toJsonString(std::string& result);
 
 void stringReplace(std::string& orc,std::string src,std::string des);
 
+
+#endif
