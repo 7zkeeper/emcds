@@ -18,6 +18,14 @@ typedef struct _kvpair_
 	std::vector<std::string> valueary;
 }kvpair;
 */
+
+typedef enum _em_exsit_flag_
+{
+	MAIN_NOT_EXIST = 0,
+	SUB_NOT_EXIST ,
+	SUB_EXIST
+}exist_flag;
+
 typedef struct _tag_user_stock_cfg
 {
 	std::string uid;
@@ -58,6 +66,8 @@ typedef struct _tag_mobile_apptypes
 }mobile_apptypes;
 
 BSONObj createSetUserStockCfg(std::string user,keyvalue value,bool exist);
+
+BSONObj createSetUserStockCfg(std::string user,keyvalue value,exist_flag flag);
 
 BSONObj createCommonSub(std::string dbcoll,std::string kv,std::string mkey,std::string arrkey,keyvalue value,bool exist);
 

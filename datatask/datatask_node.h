@@ -33,12 +33,16 @@ public:
 	virtual void task_work(const std::string& task,std::string& result);
 
 	virtual void deal_task(task_type type,keyvalue kv,std::string& result);
+	
+	virtual void deal_task(task_type type,std::string value,std::string& result);
 
 private:
 	void updateUserStockCfg(std::string dbcoll,std::string uid,condition value);
 
 	void dealSetUserStk(std::string redistask,std::string& result);
 
+	void dealSetUserStk(keyvalue ret,std::string& result);
+	
 	int setArrayInfo(std::string dbcoll,std::string kv,std::string mkey,std::string arrkey,condition value);
 
 	void setUserLoad(keyvalue kv,std::string& result);

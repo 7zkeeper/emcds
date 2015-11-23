@@ -144,7 +144,7 @@ void redisworker::task(const RedisValue& value)
 		std::cout<<value.toArray()[1].toString()<<std::endl;
 		std::string result;
 		m_pushtaskcb(value.toArray()[1].toString(),result);
-		//m_redis.command("BRPOP",m_para.task_title,"push:test2",0,boost::bind(&redisworker::onBrpop,this,_1));
+		std::cout << "redisworker::task " << m_para.task_title << std::endl;
 		m_redis.command("BRPOP",m_para.task_title,0,boost::bind(&redisworker::onBrpop,this,_1));
 		if(value.toArray()[1].toString()  == m_para.quitcmd)
 			m_ioService.stop();

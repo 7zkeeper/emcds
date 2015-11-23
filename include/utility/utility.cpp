@@ -69,6 +69,8 @@ int splits(const std::string& src,keyvalue& ret,std::string sep )
 		{
 			std::vector<std::string> vs;
 			split(tmp,vs,":");
+			stringReplace(vs[0],"\"","");
+			stringReplace(vs[1],"\"","");
 			ret.keys.push_back(vs[0]);
 			ret.values.push_back(vs[1]);
 			tmp.clear();
@@ -82,11 +84,14 @@ int splits(const std::string& src,keyvalue& ret,std::string sep )
 void getKeyValue(keyvalue& kv,std::string key,std::string& value)
 {
 	size_t index = 0;
+	stringReplace(key,"\"","");
+	stringReplace(value,"\"","");
 	for(; index < kv.keys.size();index++)
 	{
 		if(kv.keys[index] == key)
 		{
 			value = kv.values[index];
+			std::cout << "[" << key << "]: " << value << std::endl;
 			return;
 		}
 	}
@@ -153,6 +158,15 @@ void toJsonString(std::string& result)
 	result = boost::regex_replace(result,r2,"\"$1\":");
 }	
 
+void redis2JsonString(std::string& result)
+{
+	stringReplace(result," ","");
+	stringReplace(result,"[0:{","[{");
+//	std::cout << result << std::endl;
+	boost::regex re("\\}\\d:\\{");
+	std::string ret = boost::regex_replace(result,re,"},{",boost::match_default|boost::format_all);
+//	std::cout << result << std::endl;
+}
 
 void stringReplace(std::string& orc,std::string src,std::string des)
 {

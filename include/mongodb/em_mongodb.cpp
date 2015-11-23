@@ -211,6 +211,7 @@ int em_mongodb::setvalue(std::string dbcoll,mongo::Query cond,BSONObj valObj,boo
 
 	pconn->update(dbcoll,cond,valObj,flag);
 	std::string errmsg = pconn->getLastError();
+	std::cout << "em_mongodb::setvalue: " << errmsg << std::endl;
 	if(errmsg.empty())
 		ret = MDB_RET_SUCCESS;
 	boost::mutex::scoped_lock lock(m_iomux);

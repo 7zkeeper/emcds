@@ -51,5 +51,6 @@ void toJsonString(std::string& result);
 
 void stringReplace(std::string& orc,std::string src,std::string des);
 
+void redis2JsonString(std::string& result);
 
 #endif

@@ -67,9 +67,9 @@ void datatask_node::parsepara(std::string redistask,std::string& result)
 	BSONObj valobj;
 	
 	keyvalue ret;
-	splits(redistask,ret,";");
+	splits(redistask,ret,",");
 	std::string tasktype = "";
-	display(ret);
+//	display(ret);
 	getKeyValue(ret,TASK_TYPE,tasktype);
 	std::cout<<"parsepara: "<< redistask << std::endl;
 	if(tasktype.empty())	
@@ -80,26 +80,57 @@ void datatask_node::parsepara(std::string redistask,std::string& result)
 	deal_task((task_type)type,ret,result);
 }
 
+
+void datatask_node::dealSetUserStk(keyvalue ret,std::string& result)
+{
+
+	std::string user,stockcode;
+	getKeyValue(ret,"usrid",user);
+	char dbcoll[255] = {0};
+	sprintf(dbcoll,"%s.%s",DB_NAME,STKCFG_SETS);
+
+	
+	exist_flag flag  = SUB_EXIST;
+	Query query1 = MONGO_QUERY(USERSTOCK_UID<<user);
+	std::string mongo_ret ;
+	m_mongodb.query(dbcoll,query1,mongo_ret);
+	if(mongo_ret.size() < 10)
+		flag  = MAIN_NOT_EXIST;
+	Query query = MONGO_QUERY(USERSTOCK_UID<<user<<USERSTOCK_STOCKS<<BSON("$elemMatch"<<BSON(USERSTOCK_STOCKCODE<<stockcode)));
+	m_mongodb.query(dbcoll,query,mongo_ret);
+	if(mongo_ret.size() < 10)
+		flag = SUB_NOT_EXIST;
+	BSONObj bob = createSetUserStockCfg(user,ret,flag);
+	std::cout << bob << std::endl;
+	m_mongodb.setvalue(dbcoll,query,bob,true);
+}
+
 void datatask_node::dealSetUserStk(std::string redistask,std::string& result)
 {
 	std::cout << "get setuserstk quest." << std::endl;
 	std::cout << redistask << std::endl;
 
-	bool exist = false;
+	exist_flag flag  = SUB_EXIST;
 	keyvalue ret;
 	splits(redistask,ret,";");
 	std::string user,stockcode;
 	getKeyValue(ret,"userid",user);
-	BSONObj bob = createSetUserStockCfg(user,ret,exist);
 	char dbcoll[255] = {0};
 	sprintf(dbcoll,"%s.%s",DB_NAME,STKCFG_SETS);
 
-	Query query = MONGO_QUERY(USERSTOCK_UID<<user<<USERSTOCK_STOCKS<<BSON("$elemMatch"<<BSON(USERSTOCK_STOCKCODE<<stockcode)));
+	
+	Query query1 = MONGO_QUERY(USERSTOCK_UID<<user);
 	std::string mongo_ret ;
+	m_mongodb.query(dbcoll,query1,mongo_ret);
+	if(mongo_ret.size() < 10)
+		flag  = MAIN_NOT_EXIST;
+	Query query = MONGO_QUERY(USERSTOCK_UID<<user<<USERSTOCK_STOCKS<<BSON("$elemMatch"<<BSON(USERSTOCK_STOCKCODE<<stockcode)));
 	m_mongodb.query(dbcoll,query,mongo_ret);
-	if(mongo_ret.size() > 10)
-		exist = true;
-	m_mongodb.setvalue(dbcoll,query,bob,exist);
+	if(mongo_ret.size() < 10)
+		flag = SUB_NOT_EXIST;
+	BSONObj bob = createSetUserStockCfg(user,ret,flag);
+	std::cout << bob << std::endl;
+	m_mongodb.setvalue(dbcoll,query,bob,true);
 /*
 	std::stringstream stream;
 	stream << redistask;
@@ -297,7 +328,8 @@ void datatask_node::deal_task(task_type type,keyvalue kv,std::string& result)
 		getUserLoad(kv,result);
 		break;
 	case SET_USER_STOCK:
-		setUserStock(kv,result);
+		//setUserStock(kv,result);
+		dealSetUserStk(kv,result);
 		break;
 	case GET_USER_STOCK:
 		getUserStock(kv,result);
@@ -310,6 +342,10 @@ void datatask_node::deal_task(task_type type,keyvalue kv,std::string& result)
 	}
 }
 
+void datatask_node::deal_task(task_type type,std::string value,std::string& result)
+{
+
+}
 
 void datatask_node::updateUserStockCfg(std::string dbcoll,std::string uid,condition value)
 {

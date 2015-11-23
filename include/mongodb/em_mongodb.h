@@ -63,7 +63,9 @@ public:
 	int query(std::string dbcoll,mongo::Query cond,std::string& out);
 	
 	int query(std::string dbcoll,mongo::Query cond,std::vector<BSONObj>& out,int count = 0);
- 	
+
+	int insert(std::string dbcoll,mongo::BSONObj valObj);
+
 	int setvalue(std::string dbcoll,mongo::Query cond,BSONObj valObj,bool flag);
 	
 	void queryincrement(std::string dbcoll,BSONElement last);	

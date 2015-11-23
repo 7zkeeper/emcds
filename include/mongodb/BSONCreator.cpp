@@ -346,3 +346,85 @@ BSONObj createSetUserLoad(std::string token,keyvalue kv,bool exist)
 	}
 	return finalbuild.obj();
 }
+
+//flag 0:record not exist,1:sub record not exist,2:record exist
+BSONObj createSetUserStockCfg(std::string user,keyvalue value,exist_flag  flag)
+{
+	BSONObj retObj;
+	size_t 	index = 0;
+	
+	BSONObjBuilder fieldbuild,stockbuild,finalbuild,c_bob;
+	c_bob.append("UID",user);
+
+	std::string uid,stkcode;
+	int bulltin = 0;
+	float max_price = 0.0f,min_price = 0.0f;
+	long long int increment = 0;
+	
+	for(; index<value.keys.size(); index++)
+	{
+		char k[1024] = {0};
+		if(flag == SUB_NOT_EXIST)
+			sprintf(k,"%s",value.keys[index].c_str());
+		else if(flag == SUB_EXIST)
+			sprintf(k,"stocks.$.%s",value.keys[index].c_str());
+
+		std::string key = value.keys[index];
+		if(key == "uid")
+		{
+			uid = value.values[index];
+			if(flag == SUB_EXIST)
+				stockbuild.append(value.keys[index].c_str(),uid.c_str());
+		}
+		else if(key == "stockcode")
+		{
+			stkcode = value.values[index];
+			stockbuild.append(k,stkcode.c_str());
+		}
+		else if(key == "max_price")
+		{
+			sscanf(value.values[index].c_str(),"%f",&max_price);
+			if(max_price != 0.0f)
+				stockbuild.append(k,max_price);
+		}
+		else if(key == "min_price")
+		{
+			sscanf(value.values[index].c_str(),"%f",&min_price);
+			if(min_price != 0.0f)
+				stockbuild.append(k,min_price);
+		}
+		else if(key == "bulltin")
+		{
+			sscanf(value.values[index].c_str(),"%d",&bulltin);
+			stockbuild.append(k,bulltin);
+		}
+		else if(key == "run")
+		{
+			sscanf(value.values[index].c_str(),"%f",&max_price);
+			if(max_price != 0.0f)
+				stockbuild.append(k,max_price);
+		}
+		else if(key == "incrementId")
+		{
+			sscanf(value.values[index].c_str(),"%Ld",&increment);
+			stockbuild.append(k,increment);
+		}
+	}
+	if(flag = SUB_NOT_EXIST)
+	{
+		fieldbuild.append("stocks",stockbuild.obj());
+		finalbuild.append("$push",fieldbuild.obj());
+	}
+	else if (flag == SUB_EXIST)
+	{
+		c_bob.append("stocks.stockcode",stkcode.c_str());
+		finalbuild.append("$set",stockbuild.obj());
+	}
+	else if (flag == MAIN_NOT_EXIST)
+	{
+		fieldbuild.append("stocks",stockbuild.obj());
+		finalbuild.append("UID",user);
+		finalbuild.append("stocks",fieldbuild.obj());
+	}
+	return finalbuild.obj();	
+}

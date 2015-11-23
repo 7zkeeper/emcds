@@ -185,8 +185,11 @@ void ProxyServer::onRedisGetResult(hiredis::Hiredis* c,redisReply* reply)
 	LOG_INFO << " brpop " << std::string(reply->element[0]->str,reply->element[0]->len)
 				<< " " << std::string(reply->element[1]->str,reply->element[1]->len);	
 
+	if(reply->element[1]->len < 2)
+		return ;
 	std::string ret;
 	std::string task(reply->element[1]->str,reply->element[1]->len);
+	redis2JsonString(task);
 	std::stringstream stream;
 
 	stream<<task;
@@ -215,44 +218,16 @@ void ProxyServer::onRedisGetResult(hiredis::Hiredis* c,redisReply* reply)
 		dealRedisIncrstkcfg(task);
 		break;
 	}
-/*	dataserver::SetUsrStkCfg stkcfg;
-	stkcfg.set_taskid("1000001");
-	stkcfg.set_usrid("zhangqi");
-	dataserver::UserStockCfg* pUserscfg = stkcfg.add_stkcfg();
-	pUserscfg->set_stockcode("600123");
-	pUserscfg->set_bulletin(1);
-	pUserscfg->set_max_price(12.11);
-	pUserscfg->set_run(1);
-	pUserscfg->set_incrementid(12345);
-
-	dataserver::UserStockCfg* pUserscfg1 = stkcfg.add_stkcfg();
-	pUserscfg1->set_stockcode("600223");
-	pUserscfg1->set_bulletin(1);
-	pUserscfg1->set_max_price(42.85);
-	pUserscfg1->set_run(1);
-	pUserscfg1->set_incrementid(9812);
-
-	google::protobuf::Message* protomsg = NULL;
-	protomsg = &stkcfg;
-	std::string connname = m_taskconns[task];
-	LOG_INFO << "connname " << connname << ", task "<<task;
-	for(ConnectionMap::iterator it(m_conns.begin()); it != m_conns.end(); ++it)
-	{
-		TcpConnectionPtr conn = it->second;
-  		if(connname == std::string(conn->name().c_str()))
-  		{			
-			m_codec.send(conn,*protomsg);
-    		break;
-  		}
-	}
-*/	
 //	m_redis.command(boost::bind(&ProxyServer::onRedisGetResult,this,_1,_2),"BRPOP test 0");
 }
 
 void ProxyServer::onPushTask(hiredis::Hiredis* c, redisReply* reply/*,std::string* ret*/)
 {
 	LOG_INFO << " set " << redisReplyToString(reply);
-	m_redis.command(boost::bind(&ProxyServer::onRedisGetResult,this,_1,_2),"BRPOP test 0");
+	char szcmd[255] = {0};
+	sprintf(szcmd,"BRPOP %s 0",m_redis.getRetTitle().c_str());
+	std::cout << "onPushTask(): " << m_redis.getRetTitle().c_str() << std::endl;
+	m_redis.command(boost::bind(&ProxyServer::onRedisGetResult,this,_1,_2),szcmd);
 }
 
 ProxyServer::~ProxyServer()
@@ -297,14 +272,16 @@ void ProxyServer::onSetsingleusrstk(const TcpConnectionPtr& conn,const  Setsingl
 {
 	LOG4CXX_INFO(log4cxx::Logger::getLogger(PROXYSERVER),"recv SetSingleUsrStkCfg!");
 	LOG_INFO << "onSetsingleusrstk protobuf received...";
-	LOG_INFO << message->DebugString() ;
+//	LOG_INFO << message->DebugString() ;
 	std::string taskid = message->taskid();
 	std::string pushdata =  pb2json(*message);
 	stringReplace(pushdata," ","");
 	char szconn[128] = {0};
-	sprintf(szconn,"\"conn\":\"%s\",\"%s\":\"%d\",",conn->name().c_str(),TASK_TYPE,SET_USER_STOCK);
-	pushdata.insert(1,szconn);
 
+	sprintf(szconn,"\"conn\":\"%s\",\"%s\":\"%d\",",m_redis.getPushTitle().c_str(),TASK_TYPE,SET_USER_STOCK);
+//	sprintf(szconn,"\"conn\":\"%s\",\"%s\":\"%d\",",conn->name().c_str(),TASK_TYPE,SET_USER_STOCK);
+	pushdata.insert(1,szconn);
+	LOG_INFO << m_redis.getPushTitle() << ": " << pushdata;
 	m_redis.command(boost::bind(&ProxyServer::onPushTask,this,_1,_2),
 					"lpush %s %s",m_redis.getPushTitle().c_str(),pushdata.c_str());
 	m_taskconns[taskid] = std::string(conn->name().c_str());
